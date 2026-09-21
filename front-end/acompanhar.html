@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conecta - Acompanhar</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topo">
+    <div class="logo">CONECTA</div>
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="painel.html">Painel</a>
+        <a href="acompanhar.html">Acompanhar</a>
+        <a href="login.html">Sair</a>
+    </nav>
+</header>
+
+<main class="acompanhamento">
+
+    <section class="cabecalho-pagina">
+        <div>
+            <span class="tag-pagina">MEUS PROBLEMAS</span>
+            <h1>Acompanhe suas solicitações</h1>
+            <p>Veja o andamento dos problemas que você cadastrou.</p>
+        </div>
+        <a href="cadastro-problema.html" class="botao-principal">+ Novo problema</a>
+    </section>
+
+    <section class="filtros">
+        <button class="filtro ativo">Todos</button>
+        <button class="filtro">🟡 Recebidos</button>
+        <button class="filtro">🔵 Em andamento</button>
+        <button class="filtro">🟢 Resolvidos</button>
+    </section>
+
+    <section class="lista-problemas">
+
+        <article class="problema-card">
+            <div class="problema-topo">
+                <div>
+                    <span class="categoria">🏘️ Comunidade</span>
+                    <h2>Poste sem iluminação</h2>
+                </div>
+                <span class="status recebido">🟡 Recebido</span>
+            </div>
+            <p class="local">📍 Rua João Silva, nº 50</p>
+            <p class="descricao">O poste está sem iluminação durante a noite, deixando a rua muito escura.</p>
+            <div class="problema-info">
+                <span>📅 Cadastrado em: 18/09/2026</span>
+                <span>#001</span>
+            </div>
+        </article>
+
+        <article class="problema-card">
+            <div class="problema-topo">
+                <div>
+                    <span class="categoria">🏫 Educação</span>
+                    <h2>Ventilador quebrado</h2>
+                </div>
+                <span class="status andamento">🔵 Em andamento</span>
+            </div>
+            <p class="local">📍 Escola Estadual do Cariri</p>
+            <p class="descricao">O ventilador da sala de aula não está funcionando.</p>
+            <div class="problema-info">
+                <span>📅 Cadastrado em: 17/09/2026</span>
+                <span>#002</span>
+            </div>
+        </article>
+
+        <article class="problema-card">
+            <div class="problema-topo">
+                <div>
+                    <span class="categoria">🏛️ Prefeitura</span>
+                    <h2>Buraco na rua</h2>
+                </div>
+                <span class="status resolvido">🟢 Resolvido</span>
+            </div>
+            <p class="local">📍 Avenida Central</p>
+            <p class="descricao">Havia um buraco grande próximo à calçada.</p>
+            <div class="problema-info">
+                <span>📅 Cadastrado em: 15/09/2026</span>
+                <span>#003</span>
+            </div>
+        </article>
+
+    </section>
+</main>
+
+<footer>
+    <p>© 2026 Conecta — Você informa. A solução acontece.</p>
+</footer>
+
+</body>
+</html>
