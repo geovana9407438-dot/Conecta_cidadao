@@ -1,93 +1,742 @@
 * {
-        margin: 0;
-            padding: 0;
-                box-sizing: border-box;
-                }
+    box-sizing: border-box;
+}
 
-                body {
-                    font-family: Arial, sans-serif;
-                        min-height: 100vh;
-                            background: linear-gradient(135deg, #0f172a, #2563eb);
-                                display: flex;
-                                    justify-content: center;
-                                        align-items: center;
-                                        }
+html {
+    scroll-behavior: smooth;
+}
 
-                                        .login-container {
-                                            width: 100%;
-                                                padding: 20px;
-                                                }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f1f5f9;
+    color: #0f172a;
+}
 
-                                                .login-box {
-                                                    max-width: 420px;
-                                                        margin: auto;
-                                                            padding: 40px;
-                                                                background: white;
-                                                                    border-radius: 20px;
-                                                                        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
-                                                                        }
+/* TOPO */
 
-                                                                        .login-box h1 {
-                                                                            text-align: center;
-                                                                                font-size: 40px;
-                                                                                    color: #2563eb;
-                                                                                        margin-bottom: 10px;
-                                                                                        }
+.topo {
+    width: 100%;
+    padding: 18px 6%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+}
 
-                                                                                        .slogan {
-                                                                                            text-align: center;
-                                                                                                color: #64748b;
-                                                                                                    margin-bottom: 30px;
-                                                                                                    }
+.logo {
+    font-size: 25px;
+    font-weight: 900;
+    color: #2563eb;
+}
 
-                                                                                                    form {
-                                                                                                        display: flex;
-                                                                                                            flex-direction: column;
-                                                                                                            }
+.topo nav {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
 
-                                                                                                            label {
-                                                                                                                margin-bottom: 6px;
-                                                                                                                    font-weight: bold;
-                                                                                                                        color: #334155;
-                                                                                                                        }
+.topo nav a {
+    color: #334155;
+    text-decoration: none;
+    font-weight: bold;
+}
 
-                                                                                                                        input {
-                                                                                                                            padding: 14px;
-                                                                                                                                margin-bottom: 20px;
-                                                                                                                                    border: 1px solid #cbd5e1;
-                                                                                                                                        border-radius: 10px;
-                                                                                                                                            font-size: 16px;
-                                                                                                                                            }
+.topo nav a:hover {
+    color: #2563eb;
+}
 
-                                                                                                                                            input:focus {
-                                                                                                                                                outline: none;
-                                                                                                                                                    border-color: #2563eb;
-                                                                                                                                                    }
+/* LOGIN / CADASTRO */
 
-                                                                                                                                                    button {
-                                                                                                                                                        padding: 14px;
-                                                                                                                                                            border: none;
-                                                                                                                                                                border-radius: 10px;
-                                                                                                                                                                    background: #2563eb;
-                                                                                                                                                                        color: white;
-                                                                                                                                                                            font-size: 16px;
-                                                                                                                                                                                font-weight: bold;
-                                                                                                                                                                                    cursor: pointer;
-                                                                                                                                                                                    }
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    background: linear-gradient(135deg, #eff6ff, #dbeafe);
+}
 
-                                                                                                                                                                                    button:hover {
-                                                                                                                                                                                        background: #1d4ed8;
-                                                                                                                                                                                        }
+.login-box {
+    width: 100%;
+    max-width: 430px;
+    background: white;
+    padding: 40px;
+    border-radius: 22px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.10);
+}
 
-                                                                                                                                                                                        .cadastro {
-                                                                                                                                                                                            text-align: center;
-                                                                                                                                                                                                margin-top: 20px;
-                                                                                                                                                                                                    color: #64748b;
-                                                                                                                                                                                                    }
+.login-box h1 {
+    text-align: center;
+    color: #2563eb;
+    margin: 0;
+}
 
-                                                                                                                                                                                                    .cadastro a {
-                                                                                                                                                                                                        color: #2563eb;
-                                                                                                                                                                                                            font-weight: bold;
-                                                                                                                                                                                                                text-decoration: none;
-                                                                                                                                                                                                                }u
+.slogan {
+    text-align: center;
+    color: #64748b;
+    margin-bottom: 30px;
+}
+
+.login-box form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-box label {
+    margin-bottom: 7px;
+    font-weight: bold;
+    color: #334155;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 20px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.login-box input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+.login-box button {
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    background: #2563eb;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.login-box button:hover {
+    background: #1d4ed8;
+}
+
+.cadastro {
+    text-align: center;
+    color: #64748b;
+    margin-top: 20px;
+}
+
+.cadastro a {
+    color: #2563eb;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* INÍCIO */
+
+.inicio {
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+.boas-vindas {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.icone {
+    font-size: 40px;
+}
+
+.boas-vindas h1 {
+    font-size: 28px;
+    margin: 0 0 5px;
+}
+
+.boas-vindas p {
+    color: #64748b;
+}
+
+.hero {
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    color: white;
+    border-radius: 25px;
+    padding: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(37, 99, 235, 0.25);
+}
+
+.tag {
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
+.hero h2 {
+    font-size: 38px;
+    margin: 15px 0;
+}
+
+.hero h2 strong {
+    color: #bfdbfe;
+}
+
+.hero p {
+    max-width: 550px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.botao-principal {
+    display: inline-block;
+    background: white;
+    color: #2563eb;
+    padding: 15px 25px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.hero-icone {
+    font-size: 100px;
+    opacity: 0.8;
+}
+
+.areas {
+    margin-top: 50px;
+}
+
+.areas h2 {
+    font-size: 30px;
+}
+
+.subtitulo {
+    color: #64748b;
+    margin-top: 5px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    text-decoration: none;
+    color: #0f172a;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+.card-icone {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    margin-bottom: 8px;
+}
+
+.card p {
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.como-funciona {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.como-funciona h2 {
+    font-size: 30px;
+}
+
+.passos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.passos div {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+}
+
+.passos span {
+    display: inline-flex;
+    width: 45px;
+    height: 45px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #2563eb;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.passos p {
+    color: #64748b;
+}
+
+/* CADASTRO DE PROBLEMA */
+
+.formulario-container {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+.formulario-box {
+    background: white;
+    padding: 40px;
+    border-radius: 22px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.titulo-formulario {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.titulo-formulario > span {
+    font-size: 45px;
+}
+
+.titulo-formulario h1 {
+    font-size: 30px;
+    color: #0f172a;
+    margin: 0;
+}
+
+.titulo-formulario p {
+    color: #64748b;
+}
+
+.formulario-box form {
+    display: flex;
+    flex-direction: column;
+}
+
+.formulario-box label {
+    margin-bottom: 7px;
+    color: #334155;
+    font-weight: bold;
+}
+
+.formulario-box input,
+.formulario-box select,
+.formulario-box textarea {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 22px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    background: white;
+}
+
+.formulario-box textarea {
+    resize: vertical;
+}
+
+.formulario-box input:focus,
+.formulario-box select:focus,
+.formulario-box textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+.opcional {
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: normal;
+}
+
+.botao-enviar {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    background: #2563eb;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.voltar {
+    display: block;
+    text-align: center;
+    margin-top: 22px;
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* ACOMPANHAMENTO */
+
+.acompanhamento {
+    max-width: 1100px;
+    margin: auto;
+    padding: 45px 20px;
+}
+
+.cabecalho-pagina {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 35px;
+}
+
+.tag-pagina {
+    font-size: 12px;
+    font-weight: bold;
+    color: #2563eb;
+    letter-spacing: 1px;
+}
+
+.cabecalho-pagina h1 {
+    font-size: 32px;
+    margin: 8px 0;
+}
+
+.cabecalho-pagina p {
+    color: #64748b;
+}
+
+.filtros {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+.filtro {
+    border: 1px solid #cbd5e1;
+    background: white;
+    color: #475569;
+    padding: 10px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.filtro.ativo {
+    background: #2563eb;
+    color: white;
+    border-color: #2563eb;
+}
+
+.lista-problemas {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.problema-card {
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+}
+
+.problema-topo {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.categoria {
+    font-size: 13px;
+    color: #64748b;
+    font-weight: bold;
+}
+
+.problema-card h2 {
+    font-size: 21px;
+    margin-top: 7px;
+}
+
+.status {
+    padding: 8px 13px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.status.recebido {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.status.andamento {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.status.resolvido {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.local {
+    margin-top: 18px;
+    color: #475569;
+    font-weight: bold;
+}
+
+.descricao {
+    margin-top: 12px;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+.problema-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #e2e8f0;
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+/* PAINEL */
+
+.painel {
+    max-width: 1200px;
+    margin: auto;
+    padding: 45px 20px;
+}
+
+.painel-titulo {
+    margin-bottom: 35px;
+}
+
+.painel-titulo h1 {
+    font-size: 34px;
+    margin: 8px 0;
+}
+
+.painel-titulo p {
+    color: #64748b;
+}
+
+.estatisticas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 45px;
+}
+
+.estatistica {
+    background: white;
+    padding: 22px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+}
+
+.estatistica-icone {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eff6ff;
+    border-radius: 14px;
+    font-size: 25px;
+}
+
+.estatistica span {
+    display: block;
+    color: #64748b;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.estatistica strong {
+    display: block;
+    font-size: 28px;
+}
+
+.categorias-painel {
+    margin-top: 20px;
+}
+
+.secao-titulo {
+    margin-bottom: 20px;
+}
+
+.secao-titulo h2 {
+    font-size: 25px;
+}
+
+.secao-titulo p {
+    color: #64748b;
+}
+
+.categoria-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.categoria-card {
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+}
+
+.categoria-topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.categoria-topo span {
+    font-size: 32px;
+}
+
+.categoria-topo strong {
+    font-size: 28px;
+    color: #2563eb;
+}
+
+.categoria-card h3 {
+    margin-bottom: 15px;
+}
+
+.barra {
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.barra-preenchida {
+    height: 100%;
+    border-radius: 10px;
+    background: #2563eb;
+}
+
+.barra-preenchida.comunidade { width: 90%; }
+.barra-preenchida.educacao { width: 65%; }
+.barra-preenchida.empresa { width: 45%; }
+.barra-preenchida.prefeitura { width: 55%; }
+
+.resumo {
+    margin-top: 40px;
+}
+
+.resumo-card {
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    color: white;
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.resumo-icone {
+    font-size: 45px;
+}
+
+.resumo-card p {
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* RODAPÉ */
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 900px) {
+    .cards,
+    .estatisticas,
+    .categoria-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .topo {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .hero,
+    .cabecalho-pagina,
+    .problema-topo {
+        flex-direction: column;
+    }
+
+    .hero {
+        text-align: center;
+    }
+
+    .hero h2 {
+        font-size: 30px;
+    }
+
+    .cards,
+    .estatisticas,
+    .categoria-grid,
+    .passos {
+        grid-template-columns: 1fr;
+    }
+
+    .formulario-box,
+    .login-box {
+        padding: 25px 20px;
+    }
+
+    .problema-info {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .resumo-card {
+        flex-direction: column;
+        text-align: center;
+    }
 }

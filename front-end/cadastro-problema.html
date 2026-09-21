@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conecta - Cadastrar Problema</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topo">
+    <div class="logo">CONECTA</div>
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="painel.html">Painel</a>
+        <a href="acompanhar.html">Acompanhar</a>
+        <a href="login.html">Sair</a>
+    </nav>
+</header>
+
+<main class="formulario-container">
+    <section class="formulario-box">
+        <div class="titulo-formulario">
+            <span>📢</span>
+            <div>
+                <h1>Cadastrar problema</h1>
+                <p>Ajude a melhorar sua comunidade.</p>
+            </div>
+        </div>
+
+        <form id="problemaForm">
+
+            <label for="area">Onde está o problema?</label>
+            <select id="area" required>
+                <option value="">Selecione uma área</option>
+                <option value="comunidade">🏘️ Comunidade</option>
+                <option value="educacao">🏫 Educação</option>
+                <option value="empresa">🏢 Empresa</option>
+                <option value="prefeitura">🏛️ Prefeitura</option>
+            </select>
+
+            <label for="tipo">Tipo do problema</label>
+            <select id="tipo" required>
+                <option value="">Selecione o tipo</option>
+                <option value="iluminacao">💡 Iluminação</option>
+                <option value="buraco">🕳️ Buraco na rua</option>
+                <option value="limpeza">🧹 Limpeza</option>
+                <option value="estrutura">🏗️ Estrutura</option>
+                <option value="seguranca">🛡️ Segurança</option>
+                <option value="outro">📌 Outro</option>
+            </select>
+
+            <label for="local">Local</label>
+            <input type="text" id="local" placeholder="Ex.: Rua João Silva, nº 50" required>
+
+            <label for="descricao">Descrição do problema</label>
+            <textarea id="descricao" placeholder="Explique o que está acontecendo..." rows="5" required></textarea>
+
+            <label for="foto">Foto do problema <span class="opcional">(opcional)</span></label>
+            <input type="file" id="foto" accept="image/*">
+
+            <button type="submit" class="botao-enviar">ENVIAR PROBLEMA</button>
+        </form>
+
+        <a href="index.html" class="voltar">← Voltar para o início</a>
+    </section>
+</main>
+
+<script src="js/script.js"></script>
+</body>
+</html>
