@@ -1,0 +1,11 @@
+{
+  "name": "conecta-cidadao-backend",
+  "version": "1.0.0",
+  "description": "Back-End do sistema Conecta Cidadão",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Equipe Conecta Cidadão",
+  "license": "MIT"
+}
