@@ -1,18 +1,30 @@
 const express = require("express");
 
+const verificarAutenticacao =
+    require("../middleware/autenticacao");
+
 const router = express.Router();
 
-router.get("/", (req, res) => {
+
+// LISTAR PROBLEMAS
+router.get("/", verificarAutenticacao, (req, res) => {
+
     res.json({
-        mensagem: "Rota de problemas funcionando.",
+        mensagem: "Rota de problemas protegida.",
         problemas: []
     });
+
 });
 
-router.post("/", (req, res) => {
+
+// CADASTRAR PROBLEMA
+router.post("/", verificarAutenticacao, (req, res) => {
+
     res.json({
         mensagem: "Problema recebido com sucesso."
     });
+
 });
+
 
 module.exports = router;
