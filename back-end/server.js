@@ -2,7 +2,7 @@ const http = require("http");
 const express = require("express");
 
 const app = express();
-const PORTA = 3000;
+const PORTA = process.env.PORT || 3000;
 
 app.use(express.json());
 

@@ -1,11 +1,13 @@
+const {
+    verificarToken
+} = require("../security/token");
+
 function verificarAutenticacao(req, res, next) {
 
-    const token =
+    const autorizacao =
         req.headers.authorization;
 
-
-    // Verifica se existe autorização
-    if (!token) {
+    if (!autorizacao) {
 
         return res.status(401).json({
             erro: "Acesso não autorizado."
@@ -13,9 +15,7 @@ function verificarAutenticacao(req, res, next) {
 
     }
 
-
-    // Verifica o formato do token
-    if (!token.startsWith("Bearer ")) {
+    if (!autorizacao.startsWith("Bearer ")) {
 
         return res.status(401).json({
             erro: "Formato de autenticação inválido."
@@ -23,27 +23,25 @@ function verificarAutenticacao(req, res, next) {
 
     }
 
+    const token =
+        autorizacao.split(" ")[1];
 
-    // Retira "Bearer " e pega somente o token
-    const tokenRecebido =
-        token.replace("Bearer ", "");
+    try {
 
+        const usuario =
+            verificarToken(token);
 
-    if (!tokenRecebido) {
+        req.usuario = usuario;
+
+        next();
+
+    } catch (erro) {
 
         return res.status(401).json({
-            erro: "Token não informado."
+            erro: "Token inválido ou expirado."
         });
 
     }
-
-
-    // Por enquanto, apenas permite continuar
-    // quando existe um token no formato correto.
-    req.token = tokenRecebido;
-
-    next();
 }
-
 
 module.exports = verificarAutenticacao;

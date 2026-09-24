@@ -1,6 +1,10 @@
 const express = require("express");
 
 const {
+    gerarToken
+} = require("../security/token");
+
+const {
     criptografarSenha,
     verificarSenha
 } = require("../security/senha");
@@ -136,15 +140,23 @@ router.post("/login", async (req, res) => {
         }
 
 
-        res.status(200).json({
+        const token = gerarToken({
+    id: 1,
+    email: usuarioExemplo.email
+});
 
-            mensagem: "Login realizado com sucesso.",
+res.status(200).json({
 
-            usuario: {
-                email: usuarioExemplo.email
-            }
+    mensagem: "Login realizado com sucesso.",
 
-        });
+    token: token,
+
+    usuario: {
+        id: 1,
+        email: usuarioExemplo.email
+    }
+
+});
 
     } catch (erro) {
 

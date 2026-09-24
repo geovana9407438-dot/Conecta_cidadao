@@ -1,23 +1,25 @@
 function validarCadastro(req, res, next) {
 
-    const { nome, email, senha } = req.body;
+    const nomeLimpo = req.body.nome?.trim();
+    const emailLimpo = req.body.email?.trim().toLowerCase();
+    const senha = req.body.senha;
 
     // Verifica se os campos foram preenchidos
-    if (!nome || !email || !senha) {
+    if (!nomeLimpo || !emailLimpo || !senha) {
         return res.status(400).json({
             erro: "Todos os campos são obrigatórios."
         });
     }
 
     // Verifica o tamanho do nome
-    if (nome.trim().length < 3) {
+    if (nomeLimpo.length < 3) {
         return res.status(400).json({
             erro: "O nome deve ter pelo menos 3 caracteres."
         });
     }
 
     // Verifica o formato básico do e-mail
-    if (!email.includes("@")) {
+    if (!emailLimpo.includes("@")) {
         return res.status(400).json({
             erro: "Informe um e-mail válido."
         });
