@@ -6,42 +6,59 @@ function validarCadastro(req, res, next) {
 
     // Verifica se os campos foram preenchidos
     if (!nomeLimpo || !emailLimpo || !senha) {
+
         return res.status(400).json({
             erro: "Todos os campos são obrigatórios."
         });
+
     }
 
     // Verifica o tamanho do nome
     if (nomeLimpo.length < 3) {
+
         return res.status(400).json({
             erro: "O nome deve ter pelo menos 3 caracteres."
         });
+
     }
 
     // Verifica o formato básico do e-mail
     if (!emailLimpo.includes("@")) {
+
         return res.status(400).json({
             erro: "Informe um e-mail válido."
         });
+
     }
 
     // Verifica o tamanho mínimo da senha
     if (senha.length < 6) {
-    return res.status(400).json({
-        erro: "A senha deve ter pelo menos 6 caracteres."
-    });
-}
 
-if (!/[A-Z]/.test(senha)) {
-    return res.status(400).json({
-        erro: "A senha deve conter pelo menos uma letra maiúscula."
-    });
-}
+        return res.status(400).json({
+            erro: "A senha deve ter pelo menos 6 caracteres."
+        });
 
-if (!/[0-9]/.test(senha)) {
-    return res.status(400).json({
-        erro: "A senha deve conter pelo menos um número."
-    });
+    }
+
+    // Verifica se possui letra maiúscula
+    if (!/[A-Z]/.test(senha)) {
+
+        return res.status(400).json({
+            erro: "A senha deve conter pelo menos uma letra maiúscula."
+        });
+
+    }
+
+    // Verifica se possui número
+    if (!/[0-9]/.test(senha)) {
+
+        return res.status(400).json({
+            erro: "A senha deve conter pelo menos um número."
+        });
+
+    }
+
+    next();
 }
 
 module.exports = validarCadastro;
