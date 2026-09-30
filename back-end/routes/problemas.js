@@ -38,17 +38,4 @@ router.post(
     }
 );
 
-router.post(
-    "/",
-    verificarAutenticacao,
-    validarProblema,
-    (req, res) => {
-
-        res.json({
-            mensagem: "Problema recebido com sucesso."
-        });
-
-    }
-);
-
 module.exports = router;
