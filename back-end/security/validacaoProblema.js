@@ -3,14 +3,15 @@ function validarProblema(req, res, next) {
     const {
         titulo,
         descricao,
-        area
+        area,
+        local
     } = req.body;
 
     // Verifica se os campos obrigatórios foram preenchidos
-    if (!titulo || !descricao || !area) {
+    if (!titulo || !descricao || !area || !local) {
 
         return res.status(400).json({
-            erro: "Título, descrição e área são obrigatórios."
+            erro: "Título, descrição, área e local são obrigatórios."
         });
 
     }
