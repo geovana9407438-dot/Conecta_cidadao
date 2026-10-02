@@ -950,3 +950,264 @@ textarea:focus {
         border-radius: 18px;
     }
 }
+
+/* ==========================================
+   CONECTA - MELHORIA DAS CARDS E LOGIN
+   ========================================== */
+
+/* ÁREA DE CATEGORIAS */
+.categoria-grid {
+    margin-top: 28px;
+}
+
+.categoria-card {
+    position: relative;
+    overflow: hidden;
+    padding: 30px 26px;
+    min-height: 215px;
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.95),
+        rgba(245, 247, 255, 0.88)
+    );
+    border: 1px solid rgba(124, 58, 237, 0.08);
+    border-radius: 24px;
+    box-shadow:
+        0 15px 35px rgba(15, 23, 42, 0.08),
+        0 0 0 1px rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+}
+
+/* brilho decorativo */
+.categoria-card::before {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    top: -55px;
+    right: -45px;
+    border-radius: 50%;
+    background: rgba(124, 58, 237, 0.10);
+    filter: blur(5px);
+    transition: 0.3s ease;
+}
+
+.categoria-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(124, 58, 237, 0.18);
+    box-shadow:
+        0 22px 45px rgba(15, 23, 42, 0.12),
+        0 0 30px rgba(124, 58, 237, 0.08);
+}
+
+.categoria-card:hover::before {
+    transform: scale(1.5);
+}
+
+/* Ícones das categorias */
+.categoria-card:first-child,
+.categoria-card:nth-child(2),
+.categoria-card:nth-child(3),
+.categoria-card:nth-child(4) {
+    transition: all 0.3s ease;
+}
+
+/* Títulos */
+.categoria-card h3 {
+    position: relative;
+    z-index: 1;
+    font-size: 20px;
+    margin-top: 18px;
+    margin-bottom: 12px;
+}
+
+/* Descrição */
+.categoria-card p {
+    position: relative;
+    z-index: 1;
+    line-height: 1.6;
+    color: #64748b;
+}
+
+
+/* ==========================================
+   COMO FUNCIONA
+   ========================================== */
+
+.cards .card {
+    position: relative;
+    overflow: hidden;
+    min-height: 210px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(124, 58, 237, 0.08);
+    box-shadow: 0 15px 35px rgba(15, 23, 42, 0.07);
+    transition: all 0.3s ease;
+}
+
+.cards .card:hover {
+    transform: translateY(-8px);
+    box-shadow:
+        0 22px 45px rgba(15, 23, 42, 0.12),
+        0 0 25px rgba(37, 99, 235, 0.08);
+}
+
+/* ==========================================
+   LOGIN
+   ========================================== */
+
+/* Fundo especial somente na página de login */
+body:has(.login-box) {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(124, 58, 237, 0.25),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(37, 99, 235, 0.22),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #080d22,
+            #111a3d,
+            #32146b
+        );
+}
+
+/* Caixa de login */
+.login-box {
+    position: relative;
+    overflow: hidden;
+    border-radius: 28px;
+
+    background: rgba(255, 255, 255, 0.94);
+
+    border: 1px solid rgba(255, 255, 255, 0.5);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.30),
+        0 0 50px rgba(124, 58, 237, 0.15);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+/* brilho no canto da caixa */
+.login-box::before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    top: -90px;
+    right: -70px;
+
+    border-radius: 50%;
+
+    background: rgba(124, 58, 237, 0.15);
+    filter: blur(10px);
+
+    pointer-events: none;
+}
+
+/* Título do login */
+.login-box h1,
+.login-box h2 {
+    position: relative;
+    z-index: 1;
+    color: #111827;
+}
+
+/* Textos */
+.login-box p {
+    position: relative;
+    z-index: 1;
+    color: #64748b;
+}
+
+/* Campos */
+.login-box input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 16px;
+
+    border-radius: 14px;
+    border: 1px solid #dbe2f0;
+
+    background: #f8faff;
+
+    transition: all 0.2s ease;
+}
+
+.login-box input:focus {
+    border-color: #7c3aed;
+
+    background: white;
+
+    box-shadow:
+        0 0 0 4px rgba(124, 58, 237, 0.10),
+        0 8px 20px rgba(124, 58, 237, 0.08);
+}
+
+/* Botão de login */
+.login-box button {
+    width: 100%;
+    border: none;
+    border-radius: 14px;
+
+    padding: 14px 20px;
+
+    color: white;
+    font-weight: 700;
+
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #7c3aed
+    );
+
+    box-shadow:
+        0 10px 25px rgba(37, 99, 235, 0.25);
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+}
+
+.login-box button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 30px rgba(124, 58, 237, 0.30);
+}
+
+
+/* ==========================================
+   CELULAR
+   ========================================== */
+
+@media (max-width: 600px) {
+
+    .categoria-card {
+        min-height: 190px;
+        padding: 24px 20px;
+    }
+
+    .cards .card {
+        min-height: 180px;
+    }
+
+    .login-box {
+        border-radius: 22px;
+        margin: 15px;
+    }
+}
