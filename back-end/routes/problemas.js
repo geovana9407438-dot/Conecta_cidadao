@@ -25,6 +25,46 @@ router.get(
 );
 
 
+// ATUALIZAR STATUS DO PROBLEMA
+router.patch(
+    "/:id/status",
+    verificarAutenticacao,
+    (req, res) => {
+
+        const problema = problemas.find(
+            p => p.id === Number(req.params.id)
+        );
+
+        if (!problema) {
+            return res.status(404).json({
+                erro: "Problema não encontrado."
+            });
+        }
+
+        const { status } = req.body;
+
+        const statusPermitidos = [
+            "Recebido",
+            "Em andamento",
+            "Resolvido"
+        ];
+
+        if (!statusPermitidos.includes(status)) {
+            return res.status(400).json({
+                erro: "Status inválido."
+            });
+        }
+
+        problema.status = status;
+
+        res.json({
+            mensagem: "Status atualizado com sucesso.",
+            problema
+        });
+    }
+);
+
+
 // CADASTRAR PROBLEMA
 router.post(
     "/",

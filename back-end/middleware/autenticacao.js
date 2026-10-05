@@ -44,4 +44,4 @@ function verificarAutenticacao(req, res, next) {
     }
 }
 
-module.exports = verificarAutenticacao;
+module.exports = verificarAutenticacao;module.exports = verificarAutenticacao;

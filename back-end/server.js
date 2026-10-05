@@ -23,18 +23,20 @@ const problemasRoutes = require("./routes/problemas");
 app.use("/api/usuarios", usuariosRoutes);
 app.use("/api/problemas", problemasRoutes);
 
-app.get("/", (req, res) => {
-    res.json({
-        mensagem: "API do Conecta Cidadão funcionando!"
-    });
-});
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+    );
+    res.header(
+        "Access-Control-Allow-Methods",
+        "GET, POST, PATCH, OPTIONS"
+    );
 
-app.use((req, res) => {
-    res.status(404).json({
-        erro: "Rota não encontrada."
-    });
-});
+    if (req.method === "OPTIONS") {
+        return res.sendStatus(204);
+    }
 
-app.listen(PORTA, () => {
-    console.log(`Servidor Conecta iniciado na porta ${PORTA}`);
+    next();
 });
