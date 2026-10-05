@@ -37,55 +37,88 @@
     </section>
 
     <section class="lista-problemas">
+        <script>
+const API_URL = "https://ubiquitous-space-tribble-wvg7q9xpxp773g6xw-3000.app.github.dev/api/usuarios/login";
 
-        <article class="problema-card">
-            <div class="problema-topo">
-                <div>
-                    <span class="categoria">🏘️ Comunidade</span>
-                    <h2>Poste sem iluminação</h2>
+async function carregarProblemas() {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+        alert("Você precisa estar logado.");
+        return;
+    }
+
+    try {
+        const resposta = await fetch(`${API_URL}/api/problemas/`, {
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        });
+
+        const dados = await resposta.json();
+
+        if (!resposta.ok) {
+            throw new Error(dados.erro || "Erro ao carregar problemas.");
+        }
+
+        mostrarProblemas(dados.problemas);
+
+    } catch (erro) {
+        console.error(erro);
+        alert(erro.message);
+    }
+}
+
+function mostrarProblemas(problemas) {
+    const lista = document.getElementById("lista-problemas");
+
+    if (problemas.length === 0) {
+        lista.innerHTML = "<p>Nenhum problema cadastrado.</p>";
+        return;
+    }
+
+    lista.innerHTML = problemas.map(problema => {
+
+        let classeStatus = "recebido";
+        let emojiStatus = "🟡";
+
+        if (problema.status === "Em andamento") {
+            classeStatus = "andamento";
+            emojiStatus = "🔵";
+        }
+
+        if (problema.status === "Resolvido") {
+            classeStatus = "resolvido";
+            emojiStatus = "🟢";
+        }
+
+        return `
+            <article class="problema-card">
+                <div class="problema-topo">
+                    <div>
+                        <span class="categoria">📌 ${problema.area}</span>
+                        <h2>${problema.titulo}</h2>
+                    </div>
+
+                    <span class="status ${classeStatus}">
+                        ${emojiStatus} ${problema.status}
+                    </span>
                 </div>
-                <span class="status recebido">🟡 Recebido</span>
-            </div>
-            <p class="local">📍 Rua João Silva, nº 50</p>
-            <p class="descricao">O poste está sem iluminação durante a noite, deixando a rua muito escura.</p>
-            <div class="problema-info">
-                <span>📅 Cadastrado em: 18/09/2026</span>
-                <span>#001</span>
-            </div>
-        </article>
 
-        <article class="problema-card">
-            <div class="problema-topo">
-                <div>
-                    <span class="categoria">🏫 Educação</span>
-                    <h2>Ventilador quebrado</h2>
+                <p class="local">📍 ${problema.local}</p>
+
+                <p class="descricao">${problema.descricao}</p>
+
+                <div class="problema-info">
+                    <span>Problema #${problema.id}</span>
                 </div>
-                <span class="status andamento">🔵 Em andamento</span>
-            </div>
-            <p class="local">📍 Escola Estadual do Cariri</p>
-            <p class="descricao">O ventilador da sala de aula não está funcionando.</p>
-            <div class="problema-info">
-                <span>📅 Cadastrado em: 17/09/2026</span>
-                <span>#002</span>
-            </div>
-        </article>
+            </article>
+        `;
+    }).join("");
+}
 
-        <article class="problema-card">
-            <div class="problema-topo">
-                <div>
-                    <span class="categoria">🏛️ Prefeitura</span>
-                    <h2>Buraco na rua</h2>
-                </div>
-                <span class="status resolvido">🟢 Resolvido</span>
-            </div>
-            <p class="local">📍 Avenidja Central</p>
-            <p class="descricao">Havia um buraco grande próximo à calçada.</p>
-            <div class="problema-info">
-                <span>📅 Cadastrado e8m: 15/09/2026</span>
-                <span>#003</span>
-            </div>
-        </article>
-
+carregarProblemas();
+</script>
     </section>
 </main>
 

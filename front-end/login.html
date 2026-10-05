@@ -57,6 +57,44 @@
 
     </main>
 
-</body>
+    <script>
+const formulario = document.querySelector("form");
 
+formulario.addEventListener("submit", async function(evento) {
+    evento.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const senha = document.getElementById("senha").value;
+
+    try {
+       const resposta = await fetch("https://ubiquitous-space-tribble-wvg7q9xpxp773g6xw-3000.app.github.dev/api/usuarios/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email: email,
+                senha: senha
+            })
+        });
+
+        const dados = await resposta.json();
+
+        if (!resposta.ok) {
+            alert(dados.erro || "Erro ao fazer login.");
+            return;
+        }
+
+        localStorage.setItem("token", dados.token);
+
+        window.location.href = "acompanhar.html";
+
+    } catch (erro) {
+        console.error(erro);
+        alert("Não foi possível conectar ao servidor.");
+    }
+});
+    </script>
+</body>
 </html>
+
