@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Conecta Cidadão</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header>
+
+        <div class="logo">
+            📍 Conecta Cidadão
+        </div>
+
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#problema">Comunicar</a>
+            <a href="#sobre">Sobre</a>
+        </nav>
+
+    </header>
+
+
+    <!-- INÍCIO -->
+    <main>
+
+        <section id="inicio" class="inicio">
+
+            <div class="inicio-conteudo">
+
+                <h1>
+                    Conecta Cidadão
+                </h1>
+
+                <h2>
+                    Sua cidade, sua voz!
+                </h2>
+
+                <p>
+                    Ajude a melhorar a cidade comunicando
+                    problemas encontrados no seu bairro.
+                </p>
+
+                <button onclick="irParaProblema()">
+                    Comunicar um problema
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- TIPOS DE PROBLEMAS -->
+        <section class="categorias">
+
+            <h2>
+                O que você pode comunicar?
+            </h2>
+
+            <div class="cards">
+
+                <div class="card">
+                    <span>🛣️</span>
+
+                    <h3>
+                        Problemas nas ruas
+                    </h3>
+
+                    <p>
+                        Buracos, calçadas danificadas
+                        e outros problemas.
+                    </p>
+                </div>
+
+
+                <div class="card">
+                    <span>💡</span>
+
+                    <h3>
+                        Iluminação
+                    </h3>
+
+                    <p>
+                        Informe problemas com
+                        postes e iluminação pública.
+                    </p>
+                </div>
+
+
+                <div class="card">
+                    <span>🗑️</span>
+
+                    <h3>
+                        Limpeza
+                    </h3>
+
+                    <p>
+                        Informe locais com lixo
+                        ou problemas de limpeza.
+                    </p>
+                </div>
+
+
+                <div class="card">
+                    <span>🚰</span>
+
+                    <h3>
+                        Outros problemas
+                    </h3>
+
+                    <p>
+                        Comunique outros problemas
+                        encontrados na cidade.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FORMULÁRIO -->
+        <section
+            id="problema"
+            class="formulario"
+        >
+
+            <h2>
+                Comunicar um problema
+            </h2>
+
+            <p>
+                Preencha os dados abaixo para
+                registrar uma solicitação.
+            </p>
+
+
+            <form id="formProblema">
+
+                <label for="nome">
+                    Nome
+                </label>
+
+                <input
+                    type="text"
+                    id="nome"
+                    placeholder="Digite seu nome"
+                    required
+                >
+
+
+                <label for="tipo">
+                    Tipo do problema
+                </label>
+
+                <select id="tipo" required>
+
+                    <option value="">
+                        Selecione uma opção
+                    </option>
+
+                    <option value="Rua">
+                        🛣️ Problema na rua
+                    </option>
+
+                    <option value="Iluminacao">
+                        💡 Iluminação
+                    </option>
+
+                    <option value="Limpeza">
+                        🗑️ Limpeza
+                    </option>
+
+                    <option value="Outro">
+                        📌 Outro
+                    </option>
+
+                </select>
+
+
+                <label for="local">
+                    Local do problema
+                </label>
+
+                <input
+                    type="text"
+                    id="local"
+                    placeholder="Rua, bairro ou local"
+                    required
+                >
+
+
+                <label for="descricao">
+                    Descrição
+                </label>
+
+                <textarea
+                    id="descricao"
+                    placeholder="Descreva o problema encontrado"
+                    required
+                ></textarea>
+
+
+                <button type="submit">
+                    Enviar solicitação
+                </button>
+
+            </form>
+
+
+            <div
+                id="mensagem"
+                class="mensagem"
+            ></div>
+
+        </section>
+
+
+        <!-- SOBRE -->
+        <section
+            id="sobre"
+            class="sobre"
+        >
+
+            <h2>
+                Sobre o Conecta Cidadão
+            </h2>
+
+            <p>
+                O Conecta Cidadão é uma solução criada
+                para aproximar a população da administração
+                pública, facilitando a comunicação de
+                problemas encontrados na cidade.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- RODAPÉ -->
+    <footer>
+
+        <p>
+            © 2026 Conecta Cidadão
+        </p>
+
+        <p>
+            Projeto desenvolvido pela equipe.
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
