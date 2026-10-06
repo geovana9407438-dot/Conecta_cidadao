@@ -52,4 +52,13 @@ Acompanhar solução
 ## Observação
 
 As partes do projeto serão desenvolvidas separadamente e depois integradas
-para formar o sistema completo.
+para formar o sistema completo
+
+## Acompanhamento da execução
+
+As etapas iniciais de desenvolvimento foram acompanhadas conforme o
+planejamento. O servidor do Back-End e suas rotas básicas foram
+verificados.
+
+A integração entre Front-End e Back-End e os testes completos ainda
+serão realizados nas etapas seguintes.
