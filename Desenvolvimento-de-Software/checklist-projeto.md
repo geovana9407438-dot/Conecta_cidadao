@@ -51,3 +51,12 @@
 - [ ] Organizar o projeto no GitHub
 - [ ] Revisar a documentação
 - [ ] Preparar a apresentação
+
+## Acompanhamento realizado
+
+- [x] Verificação inicial do servidor do Back-End
+- [x] Verificação da API principal
+- [x] Verificação da rota de usuários
+- [x] Verificação da proteção da rota de problemas
+- [ ] Integração entre Front-End e Back-End
+- [ ] Testes finais do sistema
