@@ -117,7 +117,7 @@ if (problemaForm) {
         }
 
         // Pega o token salvo durante o login
-        const token = localStorage.getItem("tokenConecta");
+        const token = localStorage.getItem("token");
 
         if (!token) {
             alert("Você precisa fazer login para cadastrar um problema.");
@@ -128,24 +128,25 @@ if (problemaForm) {
         // Monta os dados que o Back-End espera
         const dadosProblema = {
             titulo: tipo,
-            descricao: `Local: ${local}\n${descricao}`,
-            area: area
-        };
+            descricao: descricao,
+            area: area,
+            local: local
+};
 
-        try {
-            const resposta = await fetch(
-                "http://localhost:3000/api/problemas",
-                {
-                    method: "POST",
+try {
+    const resposta = await fetch(
+        "/api/problemas",
+        {
+            method: "POST",
 
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Authorization": `Bearer ${token}`
-                    },
+            headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+            },
 
-                    body: JSON.stringify(dadosProblema)
-                }
-            );
+            body: JSON.stringify(dadosProblema)
+        }
+    );
 
             const dados = await resposta.json();
 

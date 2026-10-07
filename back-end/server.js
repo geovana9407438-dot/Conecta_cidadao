@@ -8,7 +8,8 @@ const PORTA = process.env.PORT || 3000;
 
 app.use(express.json());
 
-app.use(express.static(path.join(__dirname, "../front-end")));
+app.use(express.static(path.join(__dirname, "../front-end"))); 
+console.log("Front-end:", path.join(__dirname, "../front-end"));
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
