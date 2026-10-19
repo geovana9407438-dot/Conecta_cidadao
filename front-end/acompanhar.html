@@ -1,50 +1,98 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conecta - Acompanhar</title>
+    <title>Conecta Cidadão - Acompanhar</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <header class="topo">
     <div class="logo">CONECTA</div>
+
     <nav>
         <a href="index.html">Início</a>
         <a href="painel.html">Painel</a>
         <a href="acompanhar.html">Acompanhar</a>
         <a href="login.html">Sair</a>
     </nav>
+
+    <button type="button" id="alternarTema"
+        class="botao-tema" aria-label="Alternar tema">
+        🌙 Modo escuro
+    </button>
 </header>
 
-<main class="acompanhamento">
+<main class="acompanhamento acompanhamento-moderno">
 
     <section class="cabecalho-pagina">
         <div>
             <span class="tag-pagina">MEUS PROBLEMAS</span>
             <h1>Acompanhe suas solicitações</h1>
-            <p>Veja o andamento dos problemas que você cadastrou.</p>
+            <p>Veja o andamento dos problemas cadastrados e acompanhe cada etapa.</p>
         </div>
-        <a href="cadastro-problema.html" class="botao-principal">+ Novo problema</a>
+
+        <a href="cadastro-problema.html" class="botao-principal">
+            + Novo problema
+        </a>
     </section>
 
-    <section class="filtros">
-        <button class="filtro ativo">Todos</button>
-        <button class="filtro">🟡 Recebidos</button>
-        <button class="filtro">🔵 Em andamento</button>
-        <button class="filtro">🟢 Resolvidos</button>
+    <section class="filtros" aria-label="Filtrar problemas">
+        <button type="button" class="filtro ativo" data-filtro="todos">
+            Todos
+        </button>
+        <button type="button" class="filtro" data-filtro="Recebido">
+            🟡 Recebidos
+        </button>
+        <button type="button" class="filtro" data-filtro="Em andamento">
+            🔵 Em andamento
+        </button>
+        <button type="button" class="filtro" data-filtro="Resolvido">
+            🟢 Resolvidos
+        </button>
     </section>
 
-    <section class="lista-problemas" id="lista-problemas"></section>
-        <script>
+    <p id="mensagem-carregamento" class="mensagem-lista">
+        Carregando solicitações...
+    </p>
+
+    <section class="lista-problemas" id="lista-problemas"
+        aria-live="polite"></section>
+
+</main>
+
+<footer>
+    <p>© 2026 Conecta — Você informa. A solução acontece.</p>
+</footer>
+
+<script src="js/script.js"></script>
+
+<script>
 const API_URL = "";
+let problemasCarregados = [];
+let filtroAtual = "todos";
+
+const lista = document.getElementById("lista-problemas");
+const mensagem = document.getElementById("mensagem-carregamento");
+
+function escaparHTML(valor) {
+    return String(valor ?? "").replace(/[&<>"']/g, caractere => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+    })[caractere]);
+}
 
 async function carregarProblemas() {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("token")
+        || localStorage.getItem("tokenConecta");
 
     if (!token) {
-        alert("Você precisa estar logado.");
+        mensagem.textContent = "Faça login para consultar suas solicitações.";
         return;
     }
 
@@ -61,33 +109,48 @@ async function carregarProblemas() {
             throw new Error(dados.erro || "Erro ao carregar problemas.");
         }
 
-        mostrarProblemas(dados.problemas);
+        problemasCarregados = Array.isArray(dados.problemas)
+            ? dados.problemas
+            : [];
+
+        mensagem.textContent = "";
+        mostrarProblemas();
 
     } catch (erro) {
         console.error(erro);
-        alert(erro.message);
+        mensagem.textContent =
+            "Não foi possível carregar as solicitações. Verifique se a API está funcionando.";
     }
 }
 
-function mostrarProblemas(problemas) {
-    const lista = document.getElementById("lista-problemas");
+function mostrarProblemas() {
+    const problemasFiltrados = problemasCarregados.filter(problema => {
+        if (filtroAtual === "todos") return true;
 
-    if (problemas.length === 0) {
-        lista.innerHTML = "<p>Nenhum problema cadastrado.</p>";
+        const status = String(problema.status || "Recebido").toLowerCase();
+        return status === filtroAtual.toLowerCase();
+    });
+
+    if (problemasFiltrados.length === 0) {
+        lista.innerHTML = `
+            <div class="estado-vazio">
+                <div>📭</div>
+                <h2>Nenhuma solicitação encontrada</h2>
+                <p>Quando houver problemas nessa categoria, eles aparecerão aqui.</p>
+            </div>
+        `;
         return;
     }
 
-    lista.innerHTML = problemas.map(problema => {
-
+    lista.innerHTML = problemasFiltrados.map(problema => {
+        const statusOriginal = String(problema.status || "Recebido");
         let classeStatus = "recebido";
         let emojiStatus = "🟡";
 
-        if (problema.status === "Em andamento") {
+        if (statusOriginal.toLowerCase() === "em andamento") {
             classeStatus = "andamento";
             emojiStatus = "🔵";
-        }
-
-        if (problema.status === "Resolvido") {
+        } else if (statusOriginal.toLowerCase() === "resolvido") {
             classeStatus = "resolvido";
             emojiStatus = "🟢";
         }
@@ -96,35 +159,47 @@ function mostrarProblemas(problemas) {
             <article class="problema-card">
                 <div class="problema-topo">
                     <div>
-                        <span class="categoria">📌 ${problema.area}</span>
-                        <h2>${problema.titulo}</h2>
+                        <span class="categoria">
+                            📌 ${escaparHTML(problema.area || "Sem categoria")}
+                        </span>
+                        <h2>${escaparHTML(problema.titulo || "Problema sem título")}</h2>
                     </div>
 
                     <span class="status ${classeStatus}">
-                        ${emojiStatus} ${problema.status}
+                        ${emojiStatus} ${escaparHTML(statusOriginal)}
                     </span>
                 </div>
 
-                <p class="local">📍 ${problema.local}</p>
+                <p class="local">
+                    📍 ${escaparHTML(problema.local || "Local não informado")}
+                </p>
 
-                <p class="descricao">${problema.descricao}</p>
+                <p class="descricao">
+                    ${escaparHTML(problema.descricao || "Sem descrição.")}
+                </p>
 
                 <div class="problema-info">
-                    <span>Problema #${problema.id}</span>
+                    <span>Solicitação #${escaparHTML(problema.id ?? "—")}</span>
                 </div>
             </article>
         `;
     }).join("");
 }
 
+document.querySelectorAll(".filtro").forEach(botao => {
+    botao.addEventListener("click", () => {
+        filtroAtual = botao.dataset.filtro;
+
+        document.querySelectorAll(".filtro").forEach(item => {
+            item.classList.toggle("ativo", item === botao);
+        });
+
+        mostrarProblemas();
+    });
+});
+
 carregarProblemas();
 </script>
-    </section>
-</main>
-
-<footer>
-    <p>© 2026 Conecta — Você informa. A solução acontece.</p>
-</footer>
 
 </body>
 </html>

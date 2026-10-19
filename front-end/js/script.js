@@ -2,17 +2,25 @@
 // CONECTA - JAVASCRIPT
 // ==========================================
 
+
+const API_URL = "https://super-duper-parakeet-6v4gx4g9qwq6f5vgp-3000.app.github.dev";
+
 // CADASTRO DE USUÁRIO
 const cadastroForm = document.getElementById("cadastroForm");
 
 if (cadastroForm) {
-    cadastroForm.addEventListener("submit", function(event) {
+    cadastroForm.addEventListener("submit", async function(event) {
         event.preventDefault();
 
         const nome = document.getElementById("nome").value.trim();
         const email = document.getElementById("email").value.trim();
         const senha = document.getElementById("senha").value;
         const confirmarSenha = document.getElementById("confirmarSenha").value;
+
+        if (!nome || !email || !senha || !confirmarSenha) {
+            alert("Preencha todos os campos.");
+            return;
+        }
 
         if (senha !== confirmarSenha) {
             alert("As senhas não são iguais.");
@@ -24,17 +32,30 @@ if (cadastroForm) {
             return;
         }
 
-        const usuario = {
-            nome: nome,
-            email: email,
-            senha: senha
-        };
+        try {
+            const resposta = await fetch(`${API_URL}/api/usuarios/cadastro`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ nome, email, senha })
+            });
 
-        // Protótipo temporário. Será substituído pelo Back-End.
-        localStorage.setItem("usuarioConecta", JSON.stringify(usuario));
+            const dados = await resposta.json();
 
-        alert("Conta criada com sucesso!");
-        window.location.href = "login.html";
+            if (!resposta.ok) {
+                alert(dados.erro || dados.mensagem || "Não foi possível realizar o cadastro.");
+                return;
+            }
+
+            alert(dados.mensagem || "Cadastro realizado com sucesso!");
+            cadastroForm.reset();
+            window.location.href = "login.html";
+
+        } catch (erro) {
+            console.error("Erro no cadastro:", erro);
+            alert("Não foi possível conectar ao servidor. Verifique se o Back-End está funcionando.");
+        }
     });
 }
 

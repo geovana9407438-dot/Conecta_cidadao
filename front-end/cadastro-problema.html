@@ -3,29 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conecta - Cadastrar Problema</title>
+    <title>Conecta Cidadão - Cadastrar Problema</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <header class="topo">
     <div class="logo">CONECTA</div>
+
     <nav>
         <a href="index.html">Início</a>
         <a href="painel.html">Painel</a>
         <a href="acompanhar.html">Acompanhar</a>
         <a href="login.html">Sair</a>
     </nav>
+
+    <button type="button" id="alternarTema"
+        class="botao-tema" aria-label="Alternar tema">
+        🌙 Modo escuro
+    </button>
 </header>
 
-<main class="formulario-container">
+<main class="formulario-container formulario-moderno">
+
     <section class="formulario-box">
+
         <div class="titulo-formulario">
-            <span>📢</span>
+            <span class="formulario-icone">📢</span>
             <div>
+                <span class="tag-pagina">SUA VOZ IMPORTA</span>
                 <h1>Cadastrar problema</h1>
-                <p>Ajude a melhorar sua comunidade.</p>
+                <p>Ajude a transformar sua comunidade em um lugar melhor.</p>
             </div>
+        </div>
+
+        <div class="aviso-formulario">
+            <span>💡</span>
+            <p>Descreva a situação com clareza para ajudar a encontrar uma solução.</p>
         </div>
 
         <form id="problemaForm">
@@ -50,21 +64,49 @@
                 <option value="outro">📌 Outro</option>
             </select>
 
-            <label for="local">Local</label>
-            <input type="text" id="local" placeholder="Ex.: Rua João Silva, nº 50" required>
+            <label for="local">Local do problema</label>
+            <input
+                type="text"
+                id="local"
+                placeholder="Ex.: Rua João Silva, nº 50"
+                required
+            >
 
             <label for="descricao">Descrição do problema</label>
-            <textarea id="descricao" placeholder="Explique o que está acontecendo..." rows="5" required></textarea>
+            <textarea
+                id="descricao"
+                placeholder="Explique o que está acontecendo e onde..."
+                rows="5"
+                required
+            ></textarea>
 
-            <label for="foto">Foto do problema <span class="opcional">(opcional)</span></label>
+            <label for="foto">
+                Foto do problema
+                <span class="opcional">(opcional)</span>
+            </label>
+
             <input type="file" id="foto" accept="image/*">
 
-            <button type="submit" class="botao-enviar">ENVIAR PROBLEMA</button>
+            <p class="ajuda-foto">
+                Uma foto pode ajudar a compreender a situação.
+            </p>
+
+            <button type="submit" class="botao-enviar">
+                ENVIAR PROBLEMA →
+            </button>
+
         </form>
 
-        <a href="index.html" class="voltar">← Voltar para o início</a>
+        <a href="index.html" class="voltar">
+            ← Voltar para o início
+        </a>
+
     </section>
 </main>
+
+<footer>
+    <p>© 2026 Conecta — Você informa. A solução acontece.</p>
+</footer>
 
 <script src="js/script.js"></script>
 </body>
