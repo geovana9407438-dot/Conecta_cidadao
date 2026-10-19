@@ -1211,3 +1211,289 @@ body:has(.login-box) {
         margin: 15px;
     }
 }
+
+
+/* ===== NOVA IDENTIDADE VISUAL CONECTA ===== */
+
+:root {
+    color-scheme: light;
+    --fundo: #f7f5ff;
+    --superficie: #ffffff;
+    --texto: #25213b;
+    --texto-secundario: #6e6884;
+    --borda: #e8e2f5;
+    --degrade: linear-gradient(110deg, #3478f6, #8451e8, #ed55a7);
+    --sombra: 0 10px 30px rgba(92, 65, 170, 0.12);
+}
+
+body {
+    background: var(--fundo);
+    color: var(--texto);
+    transition: background 0.25s, color 0.25s;
+}
+
+.topo {
+    background: var(--superficie);
+    border-bottom: 1px solid var(--borda);
+    box-shadow: var(--sombra);
+}
+
+.logo {
+    background: var(--degrade);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: 800;
+}
+
+.topo nav a {
+    color: var(--texto);
+    transition: color 0.2s;
+}
+
+.topo nav a:hover {
+    color: #b044d5;
+}
+
+.hero {
+    background: var(--degrade);
+    color: #ffffff;
+    border-radius: 24px;
+    box-shadow: var(--sombra);
+}
+
+.botao-principal,
+button[type="submit"] {
+    background: var(--degrade);
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    transition: transform 0.2s, filter 0.2s;
+}
+
+.botao-principal:hover,
+button[type="submit"]:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.08);
+}
+
+.card {
+    background: var(--superficie);
+    color: var(--texto);
+    border: 1px solid var(--borda);
+    border-radius: 18px;
+    box-shadow: var(--sombra);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 34px rgba(92, 65, 170, 0.18);
+}
+
+.boas-vindas,
+.como-funciona,
+footer {
+    color: var(--texto);
+}
+
+.botao-tema {
+    padding: 10px 14px;
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    background: var(--superficie);
+    color: var(--texto);
+    cursor: pointer;
+    font: inherit;
+}
+
+body.modo-escuro {
+    color-scheme: dark;
+    --fundo: #151321;
+    --superficie: #211d32;
+    --texto: #f5f0ff;
+    --texto-secundario: #c0b6d8;
+    --borda: #39304f;
+    --sombra: 0 10px 30px rgba(0, 0, 0, 0.22);
+}
+
+body.modo-escuro .hero {
+    color: #ffffff;
+}
+
+body.modo-escuro .card,
+body.modo-escuro .topo,
+body.modo-escuro .botao-tema {
+    background-color: var(--superficie);
+    color: var(--texto);
+}
+
+body.modo-escuro .topo nav a,
+body.modo-escuro .boas-vindas,
+body.modo-escuro .como-funciona,
+body.modo-escuro footer {
+    color: var(--texto);
+}
+
+body.modo-escuro input,
+body.modo-escuro textarea,
+body.modo-escuro select {
+    background: var(--superficie);
+    color: var(--texto);
+    border-color: var(--borda);
+}
+
+@media (max-width: 700px) {
+    .topo {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .topo nav {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .botao-tema {
+        max-width: 100%;
+    }
+}
+
+
+/* ===== TELA DE LOGIN CONECTA ===== */
+
+.pagina-login {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(237, 85, 167, 0.16), transparent 35%),
+        radial-gradient(circle at 85% 80%, rgba(52, 120, 246, 0.18), transparent 35%),
+        var(--fundo);
+}
+
+.pagina-login .login-container {
+    min-height: 82vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 20px;
+}
+
+.pagina-login .login-box {
+    width: 100%;
+    max-width: 440px;
+    padding: 38px;
+    background: var(--superficie);
+    color: var(--texto);
+    border: 1px solid var(--borda);
+    border-radius: 26px;
+    box-shadow: var(--sombra);
+}
+
+.login-icone {
+    width: 58px;
+    height: 58px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 18px;
+    border-radius: 18px;
+    background: var(--degrade);
+    color: white;
+    font-size: 30px;
+}
+
+.pagina-login .login-box h1 {
+    margin: 0;
+    text-align: center;
+    font-size: 27px;
+}
+
+.pagina-login .login-box h1 span {
+    background: var(--degrade);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.pagina-login .slogan {
+    margin: 12px 0;
+    text-align: center;
+    color: var(--texto-secundario);
+}
+
+.login-descricao {
+    margin: 20px 0 26px;
+    text-align: center;
+    color: var(--texto-secundario);
+    line-height: 1.6;
+}
+
+.pagina-login .login-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pagina-login .login-box label {
+    margin-top: 8px;
+    font-weight: 600;
+    color: var(--texto);
+}
+
+.pagina-login .login-box input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 15px;
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    background: var(--superficie);
+    color: var(--texto);
+    font: inherit;
+    outline: none;
+}
+
+.pagina-login .login-box input:focus {
+    border-color: #8451e8;
+    box-shadow: 0 0 0 3px rgba(132, 81, 232, 0.14);
+}
+
+.pagina-login .login-box .botao-principal {
+    width: 100%;
+    margin-top: 18px;
+    padding: 15px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.pagina-login .cadastro {
+    margin-top: 24px;
+    text-align: center;
+    color: var(--texto-secundario);
+}
+
+.pagina-login .cadastro a,
+.voltar-inicio {
+    color: #a044d5;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.voltar-inicio {
+    display: block;
+    margin-top: 22px;
+    text-align: center;
+}
+
+.pagina-login .cadastro a:hover,
+.voltar-inicio:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+    .pagina-login .login-box {
+        padding: 28px 22px;
+    }
+
+    .pagina-login .login-box h1 {
+        font-size: 23px;
+    }
+}

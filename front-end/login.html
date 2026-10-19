@@ -1,51 +1,60 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Conecta - Login</title>
-
+    <title>Conecta Cidadão - Login</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body class="pagina-login">
+
+    <header class="topo">
+        <div class="logo">CONECTA</div>
+
+        <button type="button" id="alternarTema"
+            class="botao-tema" aria-label="Alternar tema">
+            🌙 Modo escuro
+        </button>
+    </header>
 
     <main class="login-container">
-
         <section class="login-box">
 
-            <h1>CONECTA</h1>
+            <div class="login-icone">✦</div>
+
+            <h1>Bem-vindo ao <span>CONECTA</span></h1>
 
             <p class="slogan">
                 Você informa. A solução acontece.
             </p>
 
-            <form>
+            <p class="login-descricao">
+                Entre na sua conta e ajude a transformar sua comunidade.
+            </p>
 
+            <form id="loginForm">
                 <label for="email">E-mail</label>
-
                 <input
                     type="email"
                     id="email"
                     placeholder="Digite seu e-mail"
+                    autocomplete="email"
                     required
                 >
 
                 <label for="senha">Senha</label>
-
                 <input
                     type="password"
                     id="senha"
                     placeholder="Digite sua senha"
+                    autocomplete="current-password"
                     required
                 >
 
-                <button type="submit">
-                    ENTRAR
+                <button type="submit" class="botao-principal">
+                    ENTRAR NA CONTA →
                 </button>
-
             </form>
 
             <p class="cadastro">
@@ -53,48 +62,52 @@
                 <a href="cadastro.html">Cadastre-se</a>
             </p>
 
-        </section>
+            <a href="index.html" class="voltar-inicio">
+                ← Voltar ao início
+            </a>
 
+        </section>
     </main>
 
+    <script src="js/script.js"></script>
+
     <script>
-const formulario = document.querySelector("form");
+        const formularioLogin = document.getElementById("loginForm");
 
-formulario.addEventListener("submit", async function(evento) {
-    evento.preventDefault();
+        formularioLogin.addEventListener("submit", async function(evento) {
+            evento.preventDefault();
 
-    const email = document.getElementById("email").value;
-    const senha = document.getElementById("senha").value;
+            const email = document.getElementById("email").value.trim();
+            const senha = document.getElementById("senha").value;
 
-    try {
-       const resposta = await fetch("/api/usuarios/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                email: email,
-                senha: senha
-            })
+            try {
+                const resposta = await fetch("/api/usuarios/login", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ email, senha })
+                });
+
+                const dados = await resposta.json();
+
+                if (!resposta.ok) {
+                    alert(dados.erro || "Erro ao fazer login.");
+                    return;
+                }
+
+                localStorage.setItem("token", dados.token);
+                localStorage.setItem("tokenConecta", dados.token);
+                localStorage.setItem("usuarioLogado", "true");
+
+                window.location.href = "acompanhar.html";
+
+            } catch (erro) {
+                console.error(erro);
+                alert("Não foi possível conectar ao servidor. Verifique se a API está funcionando.");
+            }
         });
-
-        const dados = await resposta.json();
-
-        if (!resposta.ok) {
-            alert(dados.erro || "Erro ao fazer login.");
-            return;
-        }
-
-        localStorage.setItem("token", dados.token);
-
-        window.location.href = "acompanhar.html";
-
-    } catch (erro) {
-        console.error(erro);
-        alert("Não foi possível conectar ao servidor.");
-    }
-});
     </script>
+
 </body>
 </html>
-

@@ -169,3 +169,31 @@ try {
         }
     });
 }
+
+
+/* ===== MODO CLARO E ESCURO ===== */
+
+const botaoTema = document.getElementById("alternarTema");
+
+function aplicarTema(tema) {
+    document.body.classList.toggle("modo-escuro", tema === "escuro");
+
+    if (botaoTema) {
+        botaoTema.textContent =
+            tema === "escuro" ? "☀️ Modo claro" : "🌙 Modo escuro";
+    }
+}
+
+const temaSalvo = localStorage.getItem("temaConecta") || "claro";
+aplicarTema(temaSalvo);
+
+if (botaoTema) {
+    botaoTema.addEventListener("click", function () {
+        const novoTema = document.body.classList.contains("modo-escuro")
+            ? "claro"
+            : "escuro";
+
+        localStorage.setItem("temaConecta", novoTema);
+        aplicarTema(novoTema);
+    });
+}
