@@ -1,0 +1,211 @@
+
+/* CONECTA CIDADÃO - VERSÃO MOBILE */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6ff;
+    color: #243047;
+    line-height: 1.6;
+}
+
+/* CABEÇALHO */
+
+header {
+    background: #312e81;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* INÍCIO */
+
+.inicio {
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    color: white;
+    padding: 65px 20px;
+    text-align: center;
+}
+
+.inicio h1 {
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.inicio h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.inicio p {
+    max-width: 550px;
+    margin: 0 auto 25px;
+}
+
+/* BOTÕES */
+
+button {
+    background: #facc15;
+    color: #1e1b4b;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 22px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #fde047;
+}
+
+/* CATEGORIAS */
+
+.categorias,
+.formulario,
+.sobre {
+    padding: 35px 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.categorias h2,
+.formulario h2,
+.sobre h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.card span {
+    font-size: 35px;
+}
+
+.card h3 {
+    margin: 12px 0;
+}
+
+/* FORMULÁRIO */
+
+.formulario form {
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.mensagem {
+    margin-top: 15px;
+    text-align: center;
+}
+
+/* SOBRE E RODAPÉ */
+
+.sobre {
+    text-align: center;
+}
+
+footer {
+    background: #312e81;
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+/* ADAPTAÇÃO PARA CELULAR */
+
+@media (max-width: 600px) {
+    header {
+        padding: 18px 12px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .inicio {
+        padding: 45px 18px;
+    }
+
+    .inicio h1 {
+        font-size: 28px;
+    }
+
+    .inicio h2 {
+        font-size: 21px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .formulario form {
+        padding: 20px 15px;
+    }
+
+    button {
+        width: 100%;
+    }
+}
