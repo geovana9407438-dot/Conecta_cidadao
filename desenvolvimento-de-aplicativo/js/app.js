@@ -1,4 +1,3 @@
-
 /* CONECTA CIDADÃO - APLICATIVO */
 
 // Levar o usuário até o formulário
@@ -33,3 +32,19 @@ formulario.addEventListener("submit", function(event) {
 
     formulario.reset();
 });
+
+// MODO ESCURO DO APLICATIVO
+
+const botaoTema = document.getElementById("alternarTema");
+
+if (botaoTema) {
+    botaoTema.addEventListener("click", function () {
+        document.body.classList.toggle("modo-escuro");
+
+        if (document.body.classList.contains("modo-escuro")) {
+            botaoTema.textContent = "☀️";
+        } else {
+            botaoTema.textContent = "🌙";
+        }
+    });
+}
