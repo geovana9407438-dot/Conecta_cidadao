@@ -312,3 +312,77 @@ body.modo-escuro footer {
     background: #0f172a;
     color: white;
 }
+
+/* MENSAGEM DE BOAS-VINDAS */
+
+.boas-vindas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background: white;
+    color: #0f172a;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.boas-vindas .icone {
+    font-size: 35px;
+}
+
+.boas-vindas h2 {
+    font-size: 22px;
+    margin: 0 0 8px;
+}
+
+.boas-vindas p {
+    margin: 0;
+    color: #64748b;
+}
+
+/* BOAS-VINDAS NO MODO ESCURO */
+
+body.modo-escuro .boas-vindas {
+    background: #1e293b;
+    color: white;
+}
+
+body.modo-escuro .boas-vindas p {
+    color: #cbd5e1;
+}
+
+/* ADAPTAÇÃO PARA CELULAR */
+
+@media (max-width: 600px) {
+    .boas-vindas {
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .boas-vindas h2 {
+        font-size: 18px;
+    }
+
+    .boas-vindas .icone {
+        font-size: 28px;
+    }
+}
+
+/* BOTÃO DE TEMA NO CELULAR */
+
+.botao-tema {
+    width: auto;
+    height: auto;
+    min-height: 44px;
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+body.modo-escuro .botao-tema {
+    background: #334155;
+    color: white;
+}

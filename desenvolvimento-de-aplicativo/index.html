@@ -16,12 +16,10 @@
 
 <body>
 
-    <!-- CABEÇALHO -->
-    <header>
+   <!-- CABEÇALHO DO APLICATIVO -->
+    <header class="topo">
 
-        <div class="logo">
-            📍 Conecta Cidadão
-        </div>
+        <div class="logo">CONECTA</div>
 
         <nav>
             <a href="#inicio">Início</a>
@@ -29,9 +27,15 @@
             <a href="#sobre">Sobre</a>
         </nav>
 
-        <button type="button" id="alternarTema" class="botao-tema" aria-label="Alternar tema">
-            🌙
+        <button
+            type="button"
+            id="alternarTema"
+            class="botao-tema"
+            aria-label="Alternar tema"
+        >
+            🌙 Modo escuro
         </button>
+
     </header>
 
 
@@ -41,13 +45,21 @@
         <section id="inicio" class="inicio">
 
             <div class="inicio-conteudo">
+                <div class="boas-vindas">
+                    <span class="icone">👋</span>
+
+                    <div>
+                        <h2>Olá! Bem-vindo ao Conecta.</h2>
+                        <p>Você informa. A solução acontece.</p>
+                    </div>
+                </div>
 
                 <h1>
-                    Conecta Cidadão
+                    Tem algum problema?
                 </h1>
 
                 <h2>
-                    Sua cidade, sua voz!
+                    Conte para a gente.
                 </h2>
 
                 <p>
@@ -55,12 +67,12 @@
                     problemas encontrados no seu bairro.
                 </p>
 
-                <button onclick="irParaProblema()">
-                    Comunicar um problema
+                <button class="botao-principal" onclick="irParaProblema()">
+                    + Cadastrar problema
                 </button>
 
             </div>
-
+            
         </section>
 
 
@@ -74,32 +86,24 @@
             <div class="cards">
 
                 <div class="card">
-                    <span>🛣️</span>
+                    <span>🏘️</span>
 
-                    <h3>
-                        Problemas nas ruas
-                    </h3>
+                    <h3>Comunidade</h3>
 
                     <p>
-                        Buracos, calçadas danificadas
-                        e outros problemas.
+                        Problemas em ruas, praças e bairros.
                     </p>
                 </div>
-
 
                 <div class="card">
-                    <span>💡</span>
+                    <span>🏫</span>
 
-                    <h3>
-                        Iluminação
-                    </h3>
+                    <h3>Educação</h3>
 
                     <p>
-                        Informe problemas com
-                        postes e iluminação pública.
+                        Problemas relacionados às escolas.
                     </p>
                 </div>
-
 
                 <div class="card">
                     <span>🗑️</span>
