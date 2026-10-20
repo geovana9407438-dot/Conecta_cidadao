@@ -386,3 +386,78 @@ body.modo-escuro .botao-tema {
     background: #334155;
     color: white;
 }
+
+/* SEÇÃO COMO FUNCIONA */
+
+.como-funciona {
+    padding: 40px 20px;
+    background: #f1f5f9;
+    text-align: center;
+}
+
+.como-funciona h2 {
+    color: #2563eb;
+    margin-bottom: 25px;
+}
+
+.passos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.passo {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.passo span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #2563eb;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.passo h3 {
+    color: #0f172a;
+}
+
+.passo p {
+    color: #64748b;
+}
+
+/* ADAPTAÇÃO PARA CELULAR */
+
+@media (max-width: 600px) {
+    .passos {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* MODO ESCURO */
+
+body.modo-escuro .como-funciona {
+    background: #0f172a;
+}
+
+body.modo-escuro .passo {
+    background: #1e293b;
+}
+
+body.modo-escuro .passo h3 {
+    color: white;
+}
+
+body.modo-escuro .passo p {
+    color: #cbd5e1;
+}
