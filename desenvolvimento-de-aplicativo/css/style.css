@@ -1243,3 +1243,86 @@ body.dark .topo .botao-tema {
     color: white;
     border-color: #8060ae;
 }
+
+
+/* CARTÕES MODERNOS DO CONECTA CIDADÃO */
+
+/* Cartões da seção de comunicação */
+#inicio .cards,
+#inicio .lista-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+/* Efeito visual nos cartões */
+#inicio .card,
+#inicio .cartao {
+    background: linear-gradient(145deg, #ffffff, #f5efff);
+    border: 2px solid #e5d4ff;
+    border-radius: 24px;
+    padding: 26px 20px;
+    box-shadow: 0 8px 22px rgba(102, 52, 175, 0.12);
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+}
+
+/* Efeito quando passa o mouse */
+#inicio .card:hover,
+#inicio .cartao:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 30px rgba(102, 52, 175, 0.2);
+    border-color: #a875ed;
+}
+
+/* Títulos dos cartões */
+#inicio .card h3,
+#inicio .cartao h3 {
+    color: #6429b5;
+    font-size: 21px;
+    margin-bottom: 12px;
+}
+
+/* Textos dos cartões */
+#inicio .card p,
+#inicio .cartao p {
+    color: #635777;
+    line-height: 1.6;
+}
+
+/* Detalhe colorido no topo de cada cartão */
+#inicio .card:nth-child(1),
+#inicio .cartao:nth-child(1) {
+    border-top: 5px solid #a56cf0;
+}
+
+#inicio .card:nth-child(2),
+#inicio .cartao:nth-child(2) {
+    border-top: 5px solid #e4a1e9;
+}
+
+#inicio .card:nth-child(3),
+#inicio .cartao:nth-child(3) {
+    border-top: 5px solid #79b7df;
+}
+
+#inicio .card:nth-child(4),
+#inicio .cartao:nth-child(4) {
+    border-top: 5px solid #82c9ac;
+}
+
+/* Adaptação para celular */
+@media (max-width: 768px) {
+    #inicio .cards,
+    #inicio .lista-cards {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    #inicio .card,
+    #inicio .cartao {
+        padding: 22px 18px;
+    }
+}
