@@ -461,3 +461,521 @@ body.modo-escuro .passo h3 {
 body.modo-escuro .passo p {
     color: #cbd5e1;
 }
+
+
+/* MISSÕES DO BEM */
+
+.missoes {
+    padding: 50px 20px;
+    text-align: center;
+    background: #f3edff;
+}
+
+.missoes h2 {
+    font-size: 28px;
+    color: #6536b5;
+    margin-bottom: 15px;
+}
+
+.missoes > p {
+    max-width: 650px;
+    margin: 0 auto 25px;
+    line-height: 1.6;
+}
+
+.missoes .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1100px;
+    margin: 25px auto;
+}
+
+.missoes .card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s;
+}
+
+.missoes .card:hover {
+    transform: translateY(-5px);
+}
+
+.missoes .card span {
+    font-size: 38px;
+}
+
+.missoes .card h3 {
+    margin: 15px 0;
+    color: #6536b5;
+}
+
+.missoes .card strong {
+    display: block;
+    margin-top: 15px;
+    color: #8a50d6;
+}
+
+/* ADAPTAÇÃO PARA CELULAR */
+
+@media (max-width: 768px) {
+    .missoes .cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* MISSÕES NO MODO ESCURO */
+
+body.dark-mode .missoes,
+body.dark .missoes {
+    background: #211a35;
+    color: #ffffff;
+}
+
+body.dark-mode .missoes .card,
+body.dark .missoes .card {
+    background: #34294b;
+    color: #ffffff;
+}
+
+
+/* MAPA INTERATIVO DA CIDADE */
+
+.mapa-cidade {
+    padding: 50px 20px;
+    text-align: center;
+    background: #f8f5ff;
+}
+
+.mapa-cidade h2 {
+    color: #6536b5;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.mapa-cidade > p {
+    max-width: 650px;
+    margin: 0 auto 25px;
+    line-height: 1.6;
+}
+
+.mapa-legenda {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.mapa-legenda span {
+    background: white;
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.mapa-container {
+    max-width: 1000px;
+    margin: 0 auto 20px;
+    overflow: hidden;
+    border-radius: 18px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+}
+
+.mapa-container iframe {
+    display: block;
+    width: 100%;
+    height: 350px;
+    border: none;
+}
+
+.mapa-aviso {
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+/* MAPA NO CELULAR */
+
+@media (max-width: 768px) {
+    .mapa-cidade {
+        padding: 35px 15px;
+    }
+
+    .mapa-container iframe {
+        height: 280px;
+    }
+}
+
+/* MAPA NO MODO ESCURO */
+
+body.dark-mode .mapa-cidade,
+body.dark .mapa-cidade {
+    background: #211a35;
+    color: white;
+}
+
+body.dark-mode .mapa-legenda span,
+body.dark .mapa-legenda span {
+    background: #34294b;
+    color: white;
+}
+
+
+/* JOVEM DECIDE */
+
+.jovem-decide {
+    padding: 50px 20px;
+    background: #f3edff;
+    text-align: center;
+}
+
+.jovem-decide h2 {
+    color: #6536b5;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.jovem-decide > p {
+    max-width: 650px;
+    margin: 0 auto 25px;
+    line-height: 1.6;
+}
+
+.jovem-decide form {
+    max-width: 600px;
+    margin: 25px auto;
+    padding: 25px;
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.jovem-decide fieldset {
+    border: none;
+    padding: 0;
+    text-align: left;
+}
+
+.jovem-decide legend {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.jovem-decide label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #e4d9f5;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.jovem-decide input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    accent-color: #6536b5;
+}
+
+.jovem-decide .botao-votar {
+    background: #6536b5;
+    color: white;
+    border: none;
+    padding: 14px 25px;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.jovem-decide .botao-votar:hover {
+    background: #4c268f;
+}
+
+#resultadoVotacao {
+    font-weight: bold;
+    color: #6536b5;
+}
+
+/* ADAPTAÇÃO PARA CELULAR */
+
+@media (max-width: 768px) {
+    .jovem-decide {
+        padding: 35px 15px;
+    }
+
+    .jovem-decide form {
+        padding: 18px;
+    }
+}
+
+/* MODO ESCURO */
+
+body.dark-mode .jovem-decide,
+body.dark .jovem-decide {
+    background: #211a35;
+    color: white;
+}
+
+body.dark-mode .jovem-decide form,
+body.dark .jovem-decide form {
+    background: #34294b;
+    color: white;
+}
+
+body.dark-mode .jovem-decide label,
+body.dark .jovem-decide label {
+    border-color: #65547e;
+}
+
+
+/* ASSISTENTE VIRTUAL - CONECTABOT */
+
+.assistente-virtual {
+    padding: 50px 20px;
+    text-align: center;
+    background: #f8f5ff;
+}
+
+.assistente-virtual h2 {
+    color: #6536b5;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.assistente-virtual > p {
+    max-width: 650px;
+    margin: 0 auto 25px;
+    line-height: 1.6;
+}
+
+.chat-container {
+    max-width: 650px;
+    margin: 25px auto;
+    background: #ffffff;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+    text-align: left;
+}
+
+.chat-cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: #6536b5;
+    color: white;
+}
+
+.chat-cabecalho span {
+    font-size: 35px;
+}
+
+.chat-cabecalho h3 {
+    margin: 0;
+    color: white;
+}
+
+.chat-cabecalho p {
+    margin: 5px 0 0;
+    font-size: 13px;
+}
+
+.chat-mensagens {
+    padding: 20px;
+    min-height: 180px;
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+.mensagem-bot {
+    background: #eee5ff;
+    color: #33204f;
+    padding: 12px 15px;
+    border-radius: 15px;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.mensagem-usuario {
+    background: #6536b5;
+    color: white;
+    padding: 12px 15px;
+    border-radius: 15px;
+    margin: 12px 0 12px 35px;
+    line-height: 1.5;
+}
+
+.chat-opcoes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 15px;
+}
+
+.chat-opcoes button {
+    background: #f3edff;
+    color: #6536b5;
+    border: 1px solid #d9c6f7;
+    border-radius: 12px;
+    padding: 12px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.chat-opcoes button:hover {
+    background: #e6d8ff;
+}
+
+/* CONECTABOT NO CELULAR */
+
+@media (max-width: 768px) {
+    .assistente-virtual {
+        padding: 35px 15px;
+    }
+
+    .chat-opcoes {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* CONECTABOT NO MODO ESCURO */
+
+body.dark-mode .assistente-virtual,
+body.dark .assistente-virtual {
+    background: #211a35;
+    color: white;
+}
+
+body.dark-mode .chat-container,
+body.dark .chat-container {
+    background: #34294b;
+    color: white;
+}
+
+body.dark-mode .chat-opcoes button,
+body.dark .chat-opcoes button {
+    background: #47365f;
+    color: white;
+    border-color: #65547e;
+}
+
+
+/* ANTES E DEPOIS */
+
+.antes-depois {
+    padding: 50px 20px;
+    background: #f3edff;
+    text-align: center;
+}
+
+.antes-depois h2 {
+    color: #6536b5;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.antes-depois > p {
+    max-width: 650px;
+    margin: 0 auto 25px;
+    line-height: 1.6;
+}
+
+.galeria-transformacoes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+.transformacao {
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.transformacao h3 {
+    color: #6536b5;
+    margin-bottom: 20px;
+}
+
+.comparacao {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.foto-antes,
+.foto-depois {
+    padding: 20px 10px;
+    border-radius: 14px;
+}
+
+.foto-antes {
+    background: #ffe5e5;
+    color: #8b2020;
+}
+
+.foto-depois {
+    background: #d9f8e5;
+    color: #17633b;
+}
+
+.foto-antes span,
+.foto-depois span {
+    display: block;
+    font-size: 45px;
+    margin-bottom: 12px;
+}
+
+.foto-antes h4,
+.foto-depois h4 {
+    margin-bottom: 10px;
+}
+
+.aviso-transformacoes {
+    font-size: 14px;
+}
+
+/* ADAPTAÇÃO PARA CELULAR */
+
+@media (max-width: 768px) {
+    .antes-depois {
+        padding: 35px 15px;
+    }
+
+    .galeria-transformacoes {
+        grid-template-columns: 1fr;
+    }
+
+    .transformacao {
+        padding: 15px;
+    }
+
+    .foto-antes,
+    .foto-depois {
+        padding: 15px 8px;
+    }
+}
+
+/* MODO ESCURO */
+
+body.dark-mode .antes-depois,
+body.dark .antes-depois {
+    background: #211a35;
+    color: white;
+}
+
+body.dark-mode .transformacao,
+body.dark .transformacao {
+    background: #34294b;
+    color: white;
+}
