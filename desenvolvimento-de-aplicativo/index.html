@@ -1,565 +1,264 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Início | Conecta Cidadão</title>
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-    <title>Conecta Cidadão</title>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(145deg, #f5efff, #e2d0ff);
+            color: #352052;
+            min-height: 100vh;
+        }
 
-    <link rel="stylesheet" href="css/style.css">
+        header {
+            background: white;
+            padding: 22px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(80, 30, 150, 0.1);
+        }
+
+        .logo {
+            color: #6725bf;
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .slogan {
+            color: #78688e;
+            margin: 8px 0;
+        }
+
+        .conta {
+            margin-top: 18px;
+        }
+
+        .conta a {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px 18px;
+            border-radius: 20px;
+            background: #f0e5ff;
+            color: #5b239d;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        main {
+            max-width: 1050px;
+            margin: auto;
+            padding: 30px 18px;
+        }
+
+        .boas-vindas {
+            background: linear-gradient(135deg, #a36aee, #6020bf);
+            color: white;
+            padding: 45px 30px;
+            border-radius: 28px;
+            text-align: center;
+            box-shadow: 0 12px 30px rgba(90, 35, 160, 0.2);
+        }
+
+        .boas-vindas h1 {
+            font-size: clamp(28px, 5vw, 42px);
+            margin: 0 0 15px;
+        }
+
+        .boas-vindas p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .botao-destaque {
+            display: inline-block;
+            background: white;
+            color: #5b239d;
+            padding: 15px 25px;
+            border-radius: 15px;
+            font-weight: bold;
+            text-decoration: none;
+            margin-top: 15px;
+        }
+
+        .titulo-secao {
+            text-align: center;
+            color: #4c1b91;
+            margin: 45px 0 25px;
+        }
+
+        .grade {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+        }
+
+        .cartao {
+            display: block;
+            background: white;
+            padding: 28px 22px;
+            border-radius: 24px;
+            text-align: center;
+            text-decoration: none;
+            color: #352052;
+            border: 2px solid #e8d7ff;
+            box-shadow: 0 8px 22px rgba(90, 35, 160, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cartao:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 30px rgba(90, 35, 160, 0.2);
+        }
+
+        .icone {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .cartao h3 {
+            color: #6429b5;
+            font-size: 21px;
+            margin: 10px 0;
+        }
+
+        .cartao p {
+            color: #6b5b80;
+            line-height: 1.6;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #6b5b80;
+        }
+
+        @media (max-width: 600px) {
+            .boas-vindas {
+                padding: 32px 20px;
+            }
+
+            .grade {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            .cartao {
+                padding: 20px 12px;
+            }
+
+            .cartao h3 {
+                font-size: 16px;
+            }
+
+            .cartao p {
+                font-size: 13px;
+            }
+
+            .icone {
+                font-size: 32px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .grade {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-   <!-- CABEÇALHO DO APLICATIVO -->
-    <header class="topo">
+    <header>
+        <div class="logo">📍 CONECTA</div>
+        <p class="slogan">Sua cidade, sua voz!</p>
 
-        <div class="logo">CONECTA</div>
-
-        <nav>
-            <a href="#inicio">Início</a>
-            <a href="#problema">Comunicar</a>
-            <a href="#sobre">Sobre</a>
-        </nav>
-
-        <button
-            type="button"
-            id="alternarTema"
-            class="botao-tema"
-            aria-label="Alternar tema"
-        >
-            🌙 Modo escuro
-        </button>
-
+        <div class="conta">
+            <a href="login.html">🔐 Entrar</a>
+            <a href="cadastro.html">👤 Criar conta</a>
+        </div>
     </header>
 
-
-    <!-- INÍCIO -->
     <main>
 
-        <section id="inicio" class="inicio">
-
-            <div class="inicio-conteudo">
-                <div class="boas-vindas">
-                    <span class="icone">👋</span>
-
-                    <div>
-                        <h2>Olá! Bem-vindo ao Conecta.</h2>
-                        <p>Você informa. A solução acontece.</p>
-                    </div>
-                </div>
-
-                <h1>
-                    Tem algum problema?
-                </h1>
-
-                <h2>
-                    Conte para a gente.
-                </h2>
-
-                <p>
-                    Ajude a melhorar a cidade comunicando
-                    problemas encontrados no seu bairro.
-                </p>
-
-                <button class="botao-principal" onclick="irParaProblema()">
-                    + Cadastrar problema
-                </button>
-
-            </div>
-            
-        </section>
-
-
-        <!-- TIPOS DE PROBLEMAS -->
-        <section class="categorias">
-
-            <h2>
-                O que você pode comunicar?
-            </h2>
-
-            <div class="cards">
-
-                <div class="card">
-                    <span>🏘️</span>
-
-                    <h3>Comunidade</h3>
-
-                    <p>
-                        Problemas em ruas, praças e bairros.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <span>🏫</span>
-
-                    <h3>Educação</h3>
-
-                    <p>
-                        Problemas relacionados às escolas.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <span>🏢</span>
-
-                    <h3>Empresa</h3>
-
-                    <p>Problemas no ambiente empresarial.</p>
-                </div>
-
-                <div class="card">
-                    <span>🏛️</span>
-
-                    <h3>Prefeitura</h3>
-
-                    <p>
-                        Solicitações para serviços públicos.
-                    </p>
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- COMO FUNCIONA -->
-        <section class="como-funciona">
-
-            <h2>Como funciona?</h2>
-
-            <div class="passos">
-
-                <div class="passo">
-                    <span>1</span>
-                    <h3>Informe</h3>
-                    <p>Cadastre o problema.</p>
-                </div>
-
-                <div class="passo">
-                    <span>2</span>
-                    <h3>Acompanhe</h3>
-                    <p>Veja o andamento.</p>
-                </div>
-
-                <div class="passo">
-                    <span>3</span>
-                    <h3>Resolva</h3>
-                    <p>Acompanhe a solução.</p>
-                </div>
-
-            </div>
-
-        </section>
-        
-        <!-- FORMULÁRIO -->
-        <section
-            id="problema"
-            class="formulario"
-        >
-
-            <h2>
-                Comunicar um problema
-            </h2>
+        <section class="boas-vindas">
+            <h1>Olá! Seja bem-vindo! 💜</h1>
 
             <p>
-                Preencha os dados abaixo para
-                registrar uma solicitação.
+                Juntos podemos transformar nossa cidade.
+                Informe problemas, participe de decisões
+                e ajude a construir um lugar melhor!
             </p>
 
-
-            <form id="formProblema">
-
-                <label for="nome">
-                    Nome
-                </label>
-
-                <input
-                    type="text"
-                    id="nome"
-                    placeholder="Digite seu nome"
-                    required
-                >
-
-
-                <label for="tipo">
-                    Tipo do problema
-                </label>
-
-                <select id="tipo" required>
-
-                    <option value="">
-                        Selecione uma opção
-                    </option>
-
-                    <option value="Rua">
-                        🛣️ Problema na rua
-                    </option>
-
-                    <option value="Iluminacao">
-                        💡 Iluminação
-                    </option>
-
-                    <option value="Limpeza">
-                        🗑️ Limpeza
-                    </option>
-
-                    <option value="Outro">
-                        📌 Outro
-                    </option>
-
-                </select>
-
-
-                <label for="local">
-                    Local do problema
-                </label>
-
-                <input
-                    type="text"
-                    id="local"
-                    placeholder="Rua, bairro ou local"
-                    required
-                >
-
-
-                <label for="descricao">
-                    Descrição
-                </label>
-
-                <textarea
-                    id="descricao"
-                    placeholder="Descreva o problema encontrado"
-                    required
-                ></textarea>
-
-
-                <button type="submit">
-                    Enviar solicitação
-                </button>
-
-            </form>
-
-
-            <div
-                id="mensagem"
-                class="mensagem"
-            ></div>
-
+            <a class="botao-destaque" href="comunicar.html">
+                📢 Comunicar um problema →
+            </a>
         </section>
 
-        <!-- MISSÕES DO BEM -->
-        <section id="missoes" class="missoes">
+        <h2 class="titulo-secao">
+            ✨ O que você deseja fazer?
+        </h2>
 
-            <h2>🏆 Missões do Bem</h2>
+        <section class="grade" aria-label="Funcionalidades do aplicativo">
 
-            <p>
-                Jovens conectados transformam a cidade!
-                Participe dos desafios e conquiste medalhas.
-            </p>
+            <a class="cartao" href="comunicar.html">
+                <div class="icone">📢</div>
+                <h3>Comunicar</h3>
+                <p>Informe problemas encontrados na cidade.</p>
+            </a>
 
-            <div class="cards">
+            <a class="cartao" href="mapa.html">
+                <div class="icone">📍</div>
+                <h3>Mapa da Cidade</h3>
+                <p>Pesquise e explore sua cidade no mapa.</p>
+            </a>
 
-                <div class="card">
-                    <span>🌱</span>
-                    <h3>Guardião da Natureza</h3>
-                    <p>
-                        Participe de ações de cuidado
-                        com o meio ambiente.
-                    </p>
-                    <strong>⭐ 50 pontos</strong>
-                </div>
+            <a class="cartao" href="missoes.html">
+                <div class="icone">🏆</div>
+                <h3>Missões do Bem</h3>
+                <p>Conheça desafios para ajudar sua comunidade.</p>
+            </a>
 
-                <div class="card">
-                    <span>💡</span>
-                    <h3>Olhar Atento</h3>
-                    <p>
-                        Identifique e comunique problemas
-                        da sua comunidade.
-                    </p>
-                    <strong>⭐ 30 pontos</strong>
-                </div>
+            <a class="cartao" href="votacao.html">
+                <div class="icone">🗳️</div>
+                <h3>Jovem Decide</h3>
+                <p>Escolha as melhorias mais importantes.</p>
+            </a>
 
-                <div class="card">
-                    <span>🤝</span>
-                    <h3>Jovem Participativo</h3>
-                    <p>
-                        Participe de uma votação sobre
-                        melhorias para a cidade.
-                    </p>
-                    <strong>⭐ 20 pontos</strong>
-                </div>
+            <a class="cartao" href="chatbot.html">
+                <div class="icone">🤖</div>
+                <h3>ConectaBot</h3>
+                <p>Tire dúvidas sobre o aplicativo.</p>
+            </a>
 
-            </div>
+            <a class="cartao" href="antes-depois.html">
+                <div class="icone">📸</div>
+                <h3>Antes e Depois</h3>
+                <p>Veja exemplos de transformações na cidade.</p>
+            </a>
 
-            <p>
-                🎖️ Complete missões verificadas
-                e conquiste suas medalhas!
-            </p>
-
-        </section>
-
-        <!-- MAPA INTERATIVO -->
-        <section id="mapa" class="mapa-cidade">
-            <h2>📍 Mapa da Nossa Cidade</h2>
-
-            <!-- PESQUISA DE CIDADE -->
-            <div class="pesquisa-cidade">
-                <h3>🔎 Encontre sua cidade</h3>
-                <p>Digite o nome da cidade que deseja visualizar no mapa.</p>
-
-                <form id="formPesquisaCidade">
-                    <input
-                        type="search"
-                        id="nomeCidade"
-                        placeholder="Ex.: Medina, MG"
-                        aria-label="Nome da cidade"
-                        required
-                    >
-
-                    <button type="submit">
-                        🔍 Pesquisar cidade
-                    </button>
-                </form>
-
-                <p id="mensagemPesquisaCidade" aria-live="polite"></p>
-            </div>
-
-            <p>
-                Descubra onde a comunidade precisa de melhorias.
-                Explore os problemas e acompanhe as soluções!
-            </p>
-
-            <div class="mapa-legenda">
-                <span>🔴 Pendente</span>
-                <span>🟡 Em andamento</span>
-                <span>🟢 Resolvido</span>
-            </div>
-
-            <div class="mapa-container">
-                <iframe
-                    title="Mapa interativo da cidade"
-                    src="https://www.openstreetmap.org/export/embed.html?bbox=-44.5%2C-18.5%2C-38.5%2C-14.5&amp;layer=mapnik"
-                    width="100%"
-                    height="350"
-                    style="border: 0;"
-                    loading="lazy">
-                </iframe>
-            </div>
-
-            <p class="mapa-aviso">
-                🗺️ Mapa demonstrativo. Em uma próxima etapa,
-                os problemas cadastrados poderão aparecer aqui.
-            </p>
-        </section>
-
-        <!-- JOVEM DECIDE -->
-        <section id="jovem-decide" class="jovem-decide">
-
-            <h2>🗳️ Jovem Decide</h2>
-
-            <p>
-                Sua opinião pode transformar a cidade!
-                Vote na melhoria que você considera mais importante.
-            </p>
-
-            <form id="formVotacao">
-
-                <fieldset>
-                    <legend>Qual melhoria deve ser prioridade?</legend>
-
-                    <label>
-                        <input type="radio" name="melhoria" value="Iluminação" required>
-                        💡 Melhorar a iluminação pública
-                    </label>
-
-                    <label>
-                        <input type="radio" name="melhoria" value="Limpeza">
-                        🌱 Melhorar a limpeza dos bairros
-                    </label>
-
-                    <label>
-                        <input type="radio" name="melhoria" value="Escolas">
-                        🏫 Melhorar as escolas
-                    </label>
-
-                    <label>
-                        <input type="radio" name="melhoria" value="Praças">
-                        🏞️ Reformar praças e espaços de lazer
-                    </label>
-                </fieldset>
-
-                <button type="submit" class="botao-votar">
-                    🗳️ Registrar meu voto
-                </button>
-
-            </form>
-
-            <p id="resultadoVotacao" role="status"></p>
-
-            <p class="aviso-votacao">
-                Esta é uma votação demonstrativa.
-                Os votos ainda não são enviados ao sistema da prefeitura.
-            </p>
-
-        </section>
-
-
-        <!-- ASSISTENTE VIRTUAL -->
-        <section id="assistente" class="assistente-virtual">
-
-            <h2>🤖 ConectaBot</h2>
-
-            <p>
-                Ficou com alguma dúvida?
-                Nosso assistente virtual está aqui para ajudar!
-            </p>
-
-            <div class="chat-container">
-
-                <div class="chat-cabecalho">
-                    <span>🤖</span>
-                    <div>
-                        <h3>ConectaBot</h3>
-                        <p>Seu guia no Conecta Cidadão</p>
-                    </div>
-                </div>
-
-                <div id="mensagensChat" class="chat-mensagens"
-                    aria-live="polite">
-                    <p class="mensagem-bot">
-                        🤖 Olá! Sou o ConectaBot!
-                        Como posso ajudar você hoje?
-                    </p>
-                </div>
-
-                <div class="chat-opcoes">
-                    <button type="button" data-pergunta="cadastrar">
-                        📝 Como cadastrar um problema?
-                    </button>
-
-                    <button type="button" data-pergunta="acompanhar">
-                        🔎 Como acompanhar?
-                    </button>
-
-                    <button type="button" data-pergunta="missoes">
-                        🏆 O que são as Missões do Bem?
-                    </button>
-
-                    <button type="button" data-pergunta="votacao">
-                        🗳️ Como funciona a votação?
-                    </button>
-                </div>
-
-            </div>
-
-            <p class="aviso-chat">
-                Assistente demonstrativo com respostas automáticas.
-            </p>
-
-        </section>
-
-        <!-- ANTES E DEPOIS -->
-        <section id="antes-depois" class="antes-depois">
-
-            <h2>📸 Antes e Depois</h2>
-
-            <p>
-                Veja como a participação dos cidadãos pode
-                transformar nossa cidade!
-            </p>
-
-            <div class="galeria-transformacoes">
-
-                <article class="transformacao">
-                    <h3>🌳 Praça da Comunidade</h3>
-
-                    <div class="comparacao">
-                        <div class="foto-antes">
-                            <span>🏚️</span>
-                            <h4>ANTES</h4>
-                            <p>Praça precisando de melhorias.</p>
-                        </div>
-
-                        <div class="foto-depois">
-                            <span>🌳</span>
-                            <h4>DEPOIS</h4>
-                            <p>Praça revitalizada e organizada.</p>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="transformacao">
-                    <h3>💡 Iluminação Pública</h3>
-
-                    <div class="comparacao">
-                        <div class="foto-antes">
-                            <span>🌑</span>
-                            <h4>ANTES</h4>
-                            <p>Rua com pouca iluminação.</p>
-                        </div>
-
-                        <div class="foto-depois">
-                            <span>💡</span>
-                            <h4>DEPOIS</h4>
-                            <p>Rua com iluminação melhorada.</p>
-                        </div>
-                    </div>
-                </article>
-
-            </div>
-
-            <p class="aviso-transformacoes">
-                ✨ Exemplos ilustrativos.
-                As melhorias apresentadas não representam
-                serviços realizados pela prefeitura.
-            </p>
-
-        </section>
-
-        <!-- SOBRE -->
-        <section
-            id="sobre"
-            class="sobre"
-        >
-
-            <h2>
-                Sobre o Conecta Cidadão
-            </h2>
-
-            <p>
-                O Conecta Cidadão é uma solução criada
-                para aproximar a população da administração
-                pública, facilitando a comunicação de
-                problemas encontrados na cidade.
-            </p>
+            <a class="cartao" href="sobre.html">
+                <div class="icone">ℹ️</div>
+                <h3>Sobre o Projeto</h3>
+                <p>Conheça o objetivo do Conecta Cidadão.</p>
+            </a>
 
         </section>
 
     </main>
 
-
-    <!-- RODAPÉ -->
     <footer>
-
-        <p>
-            © 2026 Conecta Cidadão
-        </p>
-
-        <p>
-            Projeto desenvolvido pela equipe.
-        </p>
-
+        💜 Conecta Cidadão — Sua cidade, sua voz!
     </footer>
 
-
-    <!-- JAVASCRIPT -->
-    <script src="js/app.js"></script>
-
 </body>
-
 </html>
