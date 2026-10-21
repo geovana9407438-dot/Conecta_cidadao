@@ -307,6 +307,28 @@
         <section id="mapa" class="mapa-cidade">
             <h2>📍 Mapa da Nossa Cidade</h2>
 
+            <!-- PESQUISA DE CIDADE -->
+            <div class="pesquisa-cidade">
+                <h3>🔎 Encontre sua cidade</h3>
+                <p>Digite o nome da cidade que deseja visualizar no mapa.</p>
+
+                <form id="formPesquisaCidade">
+                    <input
+                        type="search"
+                        id="nomeCidade"
+                        placeholder="Ex.: Medina, MG"
+                        aria-label="Nome da cidade"
+                        required
+                    >
+
+                    <button type="submit">
+                        🔍 Pesquisar cidade
+                    </button>
+                </form>
+
+                <p id="mensagemPesquisaCidade" aria-live="polite"></p>
+            </div>
+
             <p>
                 Descubra onde a comunidade precisa de melhorias.
                 Explore os problemas e acompanhe as soluções!

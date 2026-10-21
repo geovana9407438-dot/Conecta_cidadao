@@ -1326,3 +1326,83 @@ body.dark .topo .botao-tema {
         padding: 22px 18px;
     }
 }
+
+
+/* PESQUISA MODERNA DE CIDADES */
+
+.pesquisa-cidade {
+    background: linear-gradient(135deg, #f5edff, #e6d4ff);
+    padding: 25px;
+    border-radius: 24px;
+    border: 2px solid #d6b5ff;
+    margin: 25px auto;
+    max-width: 700px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(100, 45, 170, 0.12);
+}
+
+.pesquisa-cidade h3 {
+    color: #5b239d;
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+
+.pesquisa-cidade p {
+    color: #66517e;
+    margin-bottom: 15px;
+}
+
+#formPesquisaCidade {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#nomeCidade {
+    flex: 1;
+    min-width: 0;
+    padding: 15px;
+    border: 2px solid #c7a1f5;
+    border-radius: 15px;
+    font-size: 16px;
+    background: white;
+    color: #34204e;
+    outline: none;
+}
+
+#nomeCidade:focus {
+    border-color: #8138db;
+    box-shadow: 0 0 0 3px rgba(129, 56, 219, 0.15);
+}
+
+#formPesquisaCidade button {
+    padding: 15px 22px;
+    background: linear-gradient(135deg, #9149ec, #5717c5);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#formPesquisaCidade button:hover {
+    background: #4c15a8;
+}
+
+#mensagemPesquisaCidade {
+    margin-top: 15px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 600px) {
+    #formPesquisaCidade {
+        flex-direction: column;
+    }
+
+    #formPesquisaCidade button {
+        width: 100%;
+    }
+}

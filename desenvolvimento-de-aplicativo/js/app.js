@@ -116,3 +116,69 @@ if (mensagensChat) {
         });
     });
 }
+
+
+/* PESQUISA DE CIDADES NO MAPA */
+
+const formPesquisaCidade = document.getElementById("formPesquisaCidade");
+const nomeCidade = document.getElementById("nomeCidade");
+const mensagemPesquisaCidade = document.getElementById("mensagemPesquisaCidade");
+const mapaIframe = document.querySelector("#mapa iframe");
+
+if (formPesquisaCidade && nomeCidade && mensagemPesquisaCidade && mapaIframe) {
+    formPesquisaCidade.addEventListener("submit", async function (evento) {
+        evento.preventDefault();
+
+        const cidade = nomeCidade.value.trim();
+
+        if (!cidade) return;
+
+        mensagemPesquisaCidade.textContent = "🔎 Procurando cidade...";
+
+        try {
+            const resposta = await fetch(
+                "https://nominatim.openstreetmap.org/search?format=json&limit=1&q=" +
+                encodeURIComponent(cidade)
+            );
+
+            if (!resposta.ok) {
+                throw new Error("Falha na pesquisa");
+            }
+
+            const resultados = await resposta.json();
+
+            if (resultados.length === 0) {
+                mensagemPesquisaCidade.textContent =
+                    "❌ Cidade não encontrada. Tente incluir o estado.";
+                return;
+            }
+
+            const local = resultados[0];
+
+            const latitude = Number(local.lat);
+            const longitude = Number(local.lon);
+
+            const margem = 0.05;
+
+            const bbox = [
+                longitude - margem,
+                latitude - margem,
+                longitude + margem,
+                latitude + margem
+            ].join(",");
+
+            mapaIframe.src =
+                "https://www.openstreetmap.org/export/embed.html?bbox=" +
+                encodeURIComponent(bbox) +
+                "&layer=mapnik&marker=" +
+                encodeURIComponent(latitude + "," + longitude);
+
+            mensagemPesquisaCidade.textContent =
+                "📍 Local encontrado: " + local.display_name;
+
+        } catch (erro) {
+            mensagemPesquisaCidade.textContent =
+                "⚠️ Não foi possível pesquisar agora. Tente novamente.";
+        }
+    });
+}
