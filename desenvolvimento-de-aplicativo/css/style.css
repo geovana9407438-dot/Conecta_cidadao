@@ -1133,3 +1133,113 @@ body.dark-mode .inicio-conteudo > p,
 body.dark .inicio-conteudo > p {
     color: white;
 }
+
+
+/* CABEÇALHO MODERNO DO CONECTA CIDADÃO */
+
+.topo {
+    background: linear-gradient(135deg, #ffffff, #f1e7ff);
+    border-bottom: 1px solid #e5d5ff;
+    box-shadow: 0 4px 18px rgba(91, 30, 180, 0.08);
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* LOGO CONECTA */
+
+.topo .logo {
+    font-size: 27px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    background: linear-gradient(135deg, #9149ec, #5717c5);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* LINKS DO MENU */
+
+.topo nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.topo nav a {
+    color: #5c2ba4;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 9px 13px;
+    border-radius: 12px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.topo nav a:hover {
+    background: #e8d7ff;
+    color: #3f1685;
+}
+
+/* BOTÃO DO MODO ESCURO */
+
+.topo .botao-tema {
+    background: #ffffff;
+    color: #5c2ba4;
+    border: 1px solid #d6baff;
+    border-radius: 30px;
+    padding: 10px 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.topo .botao-tema:hover {
+    background: #e8d7ff;
+}
+
+/* CABEÇALHO NO CELULAR */
+
+@media (max-width: 768px) {
+    .topo {
+        flex-direction: column;
+        padding: 18px 12px;
+        text-align: center;
+    }
+
+    .topo .logo {
+        font-size: 25px;
+    }
+
+    .topo nav {
+        gap: 5px;
+    }
+
+    .topo nav a {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+}
+
+/* CABEÇALHO NO MODO ESCURO */
+
+body.dark-mode .topo,
+body.dark .topo {
+    background: linear-gradient(135deg, #211438, #39215d);
+    border-color: #513082;
+}
+
+body.dark-mode .topo nav a,
+body.dark .topo nav a {
+    color: #e5d5ff;
+}
+
+body.dark-mode .topo .botao-tema,
+body.dark .topo .botao-tema {
+    background: #39215d;
+    color: white;
+    border-color: #8060ae;
+}
