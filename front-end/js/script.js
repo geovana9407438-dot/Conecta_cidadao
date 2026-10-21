@@ -3,7 +3,8 @@
 // ==========================================
 
 
-const API_URL = "https://super-duper-parakeet-6v4gx4g9qwq6f5vgp-3000.app.github.dev";
+const API_URL = "https://ubiquitous-space-tribble-wvg7q9xpxp773g6xw-3000.app.github.dev";
+
 
 // CADASTRO DE USUÁRIO
 const cadastroForm = document.getElementById("cadastroForm");
@@ -76,7 +77,7 @@ if (loginForm) {
 
         try {
             const resposta = await fetch(
-                "http://localhost:3000/api/usuarios/login",
+                `${API_URL}/api/usuarios/login`,
                 {
                     method: "POST",
 
@@ -99,7 +100,7 @@ if (loginForm) {
             }
 
             // Salva o token JWT recebido do Back-End
-            localStorage.setItem("tokenConecta", dados.token);
+            localStorage.setItem("token", dados.token);
 
             // Marca que o usuário está logado
             localStorage.setItem("usuarioLogado", "true");
