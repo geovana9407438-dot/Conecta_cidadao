@@ -979,3 +979,157 @@ body.dark .transformacao {
     background: #34294b;
     color: white;
 }
+
+
+/* NOVO VISUAL DA TELA INICIAL */
+
+.inicio {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(
+        145deg,
+        #eee5ff 0%,
+        #d8c4ff 55%,
+        #b99aff 100%
+    );
+    padding: 65px 20px 85px;
+    text-align: center;
+    color: #30106f;
+}
+
+/* ONDAS DECORATIVAS */
+
+.inicio::before {
+    content: "";
+    position: absolute;
+    width: 140%;
+    height: 170px;
+    left: -20%;
+    bottom: -85px;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 50% 50% 0 0;
+    pointer-events: none;
+}
+
+.inicio::after {
+    content: "🏙️  🌳  🏡  🌲";
+    position: absolute;
+    bottom: 22px;
+    left: 0;
+    width: 100%;
+    font-size: 34px;
+    opacity: 0.45;
+    pointer-events: none;
+}
+
+.inicio-conteudo {
+    position: relative;
+    z-index: 1;
+    max-width: 850px;
+    margin: auto;
+}
+
+.inicio h1 {
+    color: #371184;
+    font-size: clamp(30px, 6vw, 48px);
+    font-weight: 800;
+    margin: 35px 0 12px;
+}
+
+.inicio-conteudo > h2 {
+    color: #7031c9;
+    font-size: clamp(23px, 4vw, 32px);
+}
+
+.inicio-conteudo > p {
+    color: #352254;
+    line-height: 1.7;
+    margin: 25px auto;
+}
+
+/* CARTÃO DE BOAS-VINDAS */
+
+.inicio .boas-vindas {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 22px;
+    padding: 22px;
+    box-shadow: 0 8px 25px rgba(76, 38, 143, 0.12);
+}
+
+.inicio .boas-vindas h2 {
+    color: #30106f;
+}
+
+.inicio .boas-vindas p {
+    color: #70618d;
+}
+
+/* BOTÃO PRINCIPAL */
+
+.inicio .botao-principal {
+    display: block;
+    width: 100%;
+    max-width: 530px;
+    margin: 35px auto 0;
+    padding: 18px 24px;
+    border: 2px solid white;
+    border-radius: 22px;
+    background: linear-gradient(
+        135deg,
+        #9149ec,
+        #5717c5
+    );
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 8px 22px rgba(91, 30, 180, 0.25);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.inicio .botao-principal:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(91, 30, 180, 0.35);
+}
+
+/* ADAPTAÇÃO PARA CELULAR */
+
+@media (max-width: 768px) {
+    .inicio {
+        padding: 45px 18px 85px;
+    }
+
+    .inicio::after {
+        font-size: 25px;
+    }
+
+    .inicio .boas-vindas {
+        padding: 18px 14px;
+    }
+
+    .inicio .botao-principal {
+        font-size: 16px;
+    }
+}
+
+/* TELA INICIAL NO MODO ESCURO */
+
+body.dark-mode .inicio,
+body.dark .inicio {
+    background: linear-gradient(
+        145deg,
+        #211438,
+        #39215d,
+        #513082
+    );
+    color: white;
+}
+
+body.dark-mode .inicio h1,
+body.dark .inicio h1,
+body.dark-mode .inicio-conteudo > h2,
+body.dark .inicio-conteudo > h2,
+body.dark-mode .inicio-conteudo > p,
+body.dark .inicio-conteudo > p {
+    color: white;
+}
