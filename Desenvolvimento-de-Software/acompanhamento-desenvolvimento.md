@@ -48,3 +48,19 @@ e verificar se as partes do projeto estão seguindo o fluxo definido.
 Os itens marcados como concluídos indicam que os arquivos ou componentes
 já estão presentes no projeto. A confirmação de que estão funcionando
 corretamente deverá ser feita durante a integração e os testes.
+
+## Testes realizados em 22/10/2026
+
+- [x] Servidor iniciado na porta 3000
+- [x] Banco de dados conectado
+- [x] Página inicial respondeu com HTTP 200 OK
+- [x] Rota de usuários respondeu com HTTP 200 OK
+- [x] Rota de problemas bloqueou o acesso sem autenticação (HTTP 401)
+
+## Testes pendentes
+
+- [ ] Testar login e cadastro de usuários
+- [ ] Testar cadastro e acompanhamento de problemas
+- [ ] Testar alteração de status
+- [ ] Verificar a integração entre Front-End e Back-End
+- [ ] Realizar os testes completos do sistema
