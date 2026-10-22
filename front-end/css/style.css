@@ -2031,3 +2031,199 @@ body.modo-escuro select {
         font-size: 23px;
     }
 }
+
+/* ===== VISUAL ROXO - CONECTA CIDADÃO ===== */
+
+:root {
+    --roxo: #7546d9;
+    --roxo-escuro: #5025a8;
+    --lilas: #eee6ff;
+}
+
+body {
+    background: linear-gradient(135deg, #f8f5ff, #eee6ff);
+    color: #302448;
+}
+
+.topo {
+    background: linear-gradient(90deg, #5025a8, #8958e8);
+    color: white;
+}
+
+.topo .logo {
+    color: white;
+    font-weight: 800;
+}
+
+.topo nav a {
+    color: white;
+}
+
+.topo nav a:hover {
+    color: #e9d8ff;
+}
+
+.hero {
+    background: linear-gradient(135deg, #7546d9, #a87df4);
+    color: white;
+    border-radius: 24px;
+    padding: 40px;
+}
+
+.hero h2,
+.hero p,
+.hero .tag {
+    color: white;
+}
+
+.botao-principal {
+    display: inline-block;
+    background: white;
+    color: #5025a8;
+    border-radius: 14px;
+    padding: 14px 24px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.botao-principal:hover {
+    background: #eee6ff;
+}
+
+.card {
+    background: white;
+    border: 1px solid #e4d6ff;
+    border-radius: 20px;
+    box-shadow: 0 6px 18px rgba(80, 37, 168, 0.10);
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.como-funciona .passos > div {
+    border-radius: 18px;
+}
+
+@media (max-width: 768px) {
+    .topo {
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 16px;
+    }
+
+    .topo nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .hero {
+        padding: 24px;
+    }
+
+    .cards {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+
+/* ===== VISUAL ROXO - CONECTA CIDADÃO ===== */
+
+:root {
+    --roxo: #7546d9;
+    --roxo-escuro: #5025a8;
+    --lilas: #eee6ff;
+}
+
+body {
+    background: linear-gradient(135deg, #f8f5ff, #eee6ff);
+    color: #302448;
+}
+
+.topo {
+    background: linear-gradient(90deg, #5025a8, #8958e8);
+    color: white;
+}
+
+.topo .logo {
+    color: white;
+    font-weight: 800;
+}
+
+.topo nav a {
+    color: white;
+}
+
+.topo nav a:hover {
+    color: #e9d8ff;
+}
+
+.hero {
+    background: linear-gradient(135deg, #7546d9, #a87df4);
+    color: white;
+    border-radius: 24px;
+    padding: 40px;
+}
+
+.hero h2,
+.hero p,
+.hero .tag {
+    color: white;
+}
+
+.botao-principal {
+    display: inline-block;
+    background: white;
+    color: #5025a8;
+    border-radius: 14px;
+    padding: 14px 24px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.botao-principal:hover {
+    background: #eee6ff;
+}
+
+.card {
+    background: white;
+    border: 1px solid #e4d6ff;
+    border-radius: 20px;
+    box-shadow: 0 6px 18px rgba(80, 37, 168, 0.10);
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.como-funciona .passos > div {
+    border-radius: 18px;
+}
+
+@media (max-width: 768px) {
+    .topo {
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 16px;
+    }
+
+    .topo nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .hero {
+        padding: 24px;
+    }
+
+    .cards {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
