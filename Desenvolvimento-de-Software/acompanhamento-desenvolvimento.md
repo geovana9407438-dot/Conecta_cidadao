@@ -56,6 +56,8 @@ corretamente deverá ser feita durante a integração e os testes.
 - [x] Página inicial respondeu com HTTP 200 OK
 - [x] Rota de usuários respondeu com HTTP 200 OK
 - [x] Rota de problemas bloqueou o acesso sem autenticação (HTTP 401)
+- [x] Cadastro de usuário realizado com sucesso (HTTP 201)
+- [x] Login realizado com sucesso e token gerado (HTTP 200)
 
 ## Testes pendentes
 
