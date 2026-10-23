@@ -2227,3 +2227,319 @@ body {
         gap: 16px;
     }
 }
+
+/* ===== CADASTRO ROXO - CONECTA CIDADÃO ===== */
+
+.pagina-login .login-container {
+    min-height: calc(100vh - 90px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 35px 16px;
+}
+
+.pagina-login .login-box {
+    width: 100%;
+    max-width: 460px;
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 24px;
+    box-shadow: 0 12px 35px rgba(80, 37, 168, 0.15);
+}
+
+.pagina-login .login-box h1 span {
+    color: #7546d9;
+}
+
+.pagina-login .login-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.pagina-login .login-box input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px;
+    border: 1px solid #d8c5ff;
+    border-radius: 12px;
+    font-size: 15px;
+}
+
+.pagina-login .login-box input:focus {
+    outline: 2px solid #8958e8;
+    outline-offset: 1px;
+}
+
+.pagina-login .login-box .botao-principal {
+    background: #7546d9;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.pagina-login .login-box .botao-principal:hover {
+    background: #5025a8;
+}
+
+.pagina-login .login-box a {
+    color: #7546d9;
+}
+
+@media (max-width: 480px) {
+    .pagina-login .login-box {
+        padding: 24px 18px;
+    }
+}
+
+/* ===== PAINEL ROXO - CONECTA CIDADÃO ===== */
+
+.painel-moderno {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 35px 20px;
+}
+
+.painel-titulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.painel-titulo h1 {
+    color: #5025a8;
+    font-size: 32px;
+}
+
+.tag-pagina {
+    color: #7546d9;
+    font-weight: bold;
+}
+
+.painel-titulo .botao-principal {
+    background: #7546d9;
+    color: white;
+}
+
+.estatisticas {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    margin-bottom: 35px;
+}
+
+.estatistica,
+.categoria-card,
+.resumo-card {
+    background: white;
+    border: 1px solid #e7d9ff;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 8px 22px rgba(80, 37, 168, 0.10);
+}
+
+.estatistica {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.estatistica-icone {
+    font-size: 30px;
+}
+
+.estatistica strong {
+    display: block;
+    color: #7546d9;
+    font-size: 30px;
+    margin-top: 8px;
+}
+
+.categorias-painel h2 {
+    color: #5025a8;
+}
+
+.categoria-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.categoria-card h3 {
+    color: #5025a8;
+}
+
+.barra {
+    background: #eee6ff;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 10px;
+    margin-top: 15px;
+}
+
+.barra-preenchida {
+    background: linear-gradient(90deg, #7546d9, #a87df4);
+    height: 100%;
+    border-radius: 20px;
+}
+
+.resumo-card {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+@media (max-width: 900px) {
+    .estatisticas,
+    .categoria-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 550px) {
+    .estatisticas,
+    .categoria-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .painel-titulo h1 {
+        font-size: 26px;
+    }
+}
+
+/* ===== ACOMPANHAR - CONECTA CIDADÃO ===== */
+
+.acompanhamento-moderno {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    min-height: 75vh;
+}
+
+.cabecalho-pagina {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.cabecalho-pagina h1 {
+    color: #5025a8;
+    font-size: 32px;
+    margin: 12px 0;
+}
+
+.cabecalho-pagina p {
+    color: #686080;
+}
+
+.acompanhamento-moderno .botao-principal {
+    background: #7546d9;
+    color: white;
+    border-radius: 12px;
+    padding: 14px 22px;
+}
+
+.acompanhamento-moderno .filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.acompanhamento-moderno .filtro {
+    background: white;
+    color: #5025a8;
+    border: 1px solid #d8c5ff;
+    padding: 12px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.acompanhamento-moderno .filtro:hover,
+.acompanhamento-moderno .filtro.ativo {
+    background: #7546d9;
+    color: white;
+    border-color: #7546d9;
+}
+
+.acompanhamento-moderno .lista-problemas {
+    display: grid;
+    gap: 20px;
+}
+
+.acompanhamento-moderno .problema-card,
+.acompanhamento-moderno .estado-vazio {
+    background: white;
+    border: 1px solid #e7d9ff;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 8px 25px rgba(80, 37, 168, 0.10);
+}
+
+.acompanhamento-moderno .problema-topo {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.acompanhamento-moderno .problema-card h2 {
+    color: #5025a8;
+    margin: 12px 0;
+}
+
+.acompanhamento-moderno .status {
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.acompanhamento-moderno .status.recebido {
+    background: #fff3cd;
+    color: #805900;
+}
+
+.acompanhamento-moderno .status.andamento {
+    background: #dceaff;
+    color: #174c99;
+}
+
+.acompanhamento-moderno .status.resolvido {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.acompanhamento-moderno .estado-vazio {
+    text-align: center;
+    padding: 45px 20px;
+}
+
+.acompanhamento-moderno .mensagem-lista {
+    color: #7546d9;
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    .cabecalho-pagina h1 {
+        font-size: 25px;
+    }
+
+    .acompanhamento-moderno .filtro {
+        padding: 10px 14px;
+    }
+
+    .acompanhamento-moderno .problema-card {
+        padding: 18px;
+    }
+}
