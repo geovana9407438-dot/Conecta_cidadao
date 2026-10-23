@@ -1,79 +1,593 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mapa da Cidade | Conecta Cidadão</title>
-<style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(145deg,#f5efff,#e2d0ff);color:#352052;min-height:100vh}
-header{background:#fff;padding:18px;text-align:center;box-shadow:0 3px 15px #65409c22}
-.logo{font-size:26px;font-weight:900;color:#6725bf}
-nav{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:15px}
-nav a{padding:10px 13px;background:#f0e5ff;color:#5b239d;border-radius:12px;text-decoration:none;font-weight:bold;font-size:14px}
-nav a:hover{background:#d9bdff}
-main{max-width:850px;margin:30px auto;padding:15px}
-.card{background:white;border-radius:24px;padding:25px;margin:18px 0;box-shadow:0 8px 25px #65409c22}
-h1,h2{color:#5b239d}
-input,textarea,select{width:100%;padding:14px;margin:8px 0 16px;border:2px solid #ddc8fa;border-radius:12px;font:inherit}
-button,.botao{display:inline-block;background:linear-gradient(135deg,#9149ec,#5717c5);color:white;border:0;border-radius:14px;padding:14px 20px;font-weight:bold;cursor:pointer;text-decoration:none;font-size:15px}
-button:hover,.botao:hover{filter:brightness(.92)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:15px}
-.item{background:#f4ebff;border-radius:18px;padding:22px;text-align:center}
-iframe{width:100%;height:380px;border:0;border-radius:16px}
-.aviso{font-size:13px;color:#67567b}
-#mensagem{font-weight:bold;color:#5b239d;overflow-wrap:anywhere}
-.chat{background:#f5efff;padding:15px;border-radius:15px;min-height:100px;margin:15px 0}
-.chat p{background:white;border-radius:12px;padding:12px}
-footer{text-align:center;padding:25px;color:#67567b}
-@media(max-width:600px){main{margin:10px auto}nav a{font-size:12px;padding:9px} .card{padding:18px}}
-</style>
-</head>
-<body>
-<header>
-<div class="logo">📍 CONECTA</div>
-<p>Sua cidade, sua voz!</p>
-<nav><a href="index.html">🏠 Início</a><a href="comunicar.html">📢 Comunicar</a><a href="mapa.html">📍 Mapa</a><a href="missoes.html">🏆 Missões</a><a href="votacao.html">🗳️ Jovem Decide</a><a href="chatbot.html">🤖 ConectaBot</a><a href="antes-depois.html">📸 Antes e Depois</a><a href="sobre.html">ℹ️ Sobre</a><a href="login.html">🔐 Login</a><a href="cadastro.html">👤 Criar conta</a></nav>
-</header>
-<main>
-<h1>Mapa da Cidade</h1>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mapa da Cidade | Conecta Cidadão</title>
 
-    <div class="card">
-    <h2>🔎 Encontre sua cidade</h2>
+  <link rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(145deg, #f5efff, #e2d0ff);
+      color: #352052;
+      min-height: 100vh;
+    }
+
+    header {
+      background: white;
+      padding: 18px;
+      text-align: center;
+      box-shadow: 0 3px 15px #65409c22;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: 900;
+      color: #6725bf;
+    }
+
+    nav {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+
+    nav a {
+      padding: 10px 13px;
+      background: #f0e5ff;
+      color: #5b239d;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      background: #d9bdff;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 25px auto;
+      padding: 15px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 8px 25px #65409c22;
+    }
+
+    h1, h2 {
+      color: #5b239d;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 13px;
+      margin: 8px 0 14px;
+      border: 2px solid #ddc8fa;
+      border-radius: 12px;
+      font: inherit;
+    }
+
+    button {
+      background: linear-gradient(135deg, #9149ec, #5717c5);
+      color: white;
+      border: 0;
+      border-radius: 12px;
+      padding: 13px 18px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      filter: brightness(.93);
+    }
+
+    .botoes {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 12px 0;
+    }
+
+    .botoes button.ativo {
+      background: #43108e;
+      outline: 3px solid #d5b7ff;
+    }
+
+    #mapa {
+      width: 100%;
+      height: 500px;
+      border-radius: 16px;
+      background: #eee7f8;
+      z-index: 1;
+    }
+
+    #mensagem, #avisoProblemas {
+      color: #5b239d;
+      font-weight: bold;
+      overflow-wrap: anywhere;
+    }
+
+    .legenda {
+      margin-top: 15px;
+      line-height: 1.8;
+    }
+
+    .aviso {
+      font-size: 13px;
+      color: #67567b;
+    }
+
+    .pin-problema {
+      background: transparent;
+      border: none;
+    }
+
+    .pin-problema span {
+      display: block;
+      font-size: 33px;
+      line-height: 1;
+      filter: drop-shadow(0 2px 3px #3337);
+    }
+
+    .popup-problema {
+      min-width: 180px;
+      max-width: 260px;
+      overflow-wrap: anywhere;
+    }
+
+    .popup-problema p {
+      margin: 8px 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #67567b;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        padding: 16px;
+      }
+
+      #mapa {
+        height: 380px;
+      }
+
+      nav a {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">📍 CONECTA</div>
+  <p>Sua cidade, sua voz!</p>
+
+  <nav>
+    <a href="index.html">🏠 Início</a>
+    <a href="comunicar.html">📢 Comunicar</a>
+    <a href="mapa.html">📍 Mapa</a>
+    <a href="missoes.html">🏆 Missões</a>
+    <a href="votacao.html">🗳️ Jovem Decide</a>
+    <a href="chatbot.html">🤖 ConectaBot</a>
+    <a href="antes-depois.html">📸 Antes e Depois</a>
+    <a href="sobre.html">ℹ️ Sobre</a>
+    <a href="login.html">🔐 Login</a>
+    <a href="cadastro.html">👤 Criar conta</a>
+  </nav>
+</header>
+
+<main>
+  <h1>🗺️ Mapa da Cidade</h1>
+
+  <div class="card">
+    <h2>🔎 Encontre sua cidade, bairro ou povoado</h2>
+
     <form id="pesquisa">
-    <input id="cidade" required placeholder="Ex.: Medina, Minas Gerais, Brasil">
-    <button>🔍 Pesquisar cidade</button>
+      <input
+        id="cidade"
+        required
+        placeholder="Ex.: Medina, Minas Gerais, Brasil">
+
+      <button type="submit">🔍 Pesquisar</button>
     </form>
+
     <p id="mensagem" aria-live="polite"></p>
-    <iframe id="mapa" title="Mapa da cidade"
-    src="https://www.openstreetmap.org/export/embed.html?bbox=-44.5%2C-18.5%2C-38.5%2C-14.5&amp;layer=mapnik"
-    loading="lazy"></iframe>
-    <p>🔴 Pendente &nbsp; 🟡 Em andamento &nbsp; 🟢 Resolvido</p>
-    <p class="aviso">Legenda ilustrativa. Os problemas ainda não aparecem no mapa.</p>
+
+    <div class="botoes">
+      <button type="button" id="btnNormal" class="ativo">
+        🗺️ Mapa normal
+      </button>
+
+      <button type="button" id="btnSatelite">
+        🛰️ Satélite com nomes
+      </button>
     </div>
-    
+
+    <label for="filtroStatus">
+      <strong>📍 Filtrar problemas:</strong>
+    </label>
+
+    <select id="filtroStatus">
+      <option value="Todos">Todos os problemas</option>
+      <option value="Recebido">🔴 Recebidos</option>
+      <option value="Em andamento">🟡 Em andamento</option>
+      <option value="Resolvido">🟢 Resolvidos</option>
+    </select>
+
+    <div id="mapa" aria-label="Mapa interativo"></div>
+
+    <p class="legenda">
+      📍 Local do problema &nbsp;
+      🔴 Recebido &nbsp;
+      🟡 Em andamento &nbsp;
+      🟢 Resolvido
+    </p>
+
+    <p id="avisoProblemas" aria-live="polite">
+      Preparando consulta dos problemas...
+    </p>
+
+    <p class="aviso">
+      O satélite mostra os nomes disponíveis na base cartográfica.
+      Algumas comunidades e zonas rurais podem não estar identificadas.
+      Para visualizar problemas cadastrados, é necessário fazer login.
+    </p>
+  </div>
 </main>
+
 <footer>💜 Conecta Cidadão — Projeto escolar</footer>
+
 <script>
-    document.getElementById('pesquisa').onsubmit=async e=>{
-      e.preventDefault();
-      const msg=document.getElementById('mensagem');
-      msg.textContent='🔎 Pesquisando...';
-      try{
-        const q=document.getElementById('cidade').value.trim();
-        const r=await fetch('https://nominatim.openstreetmap.org/search?format=json&limit=1&q='+encodeURIComponent(q));
-        if(!r.ok)throw Error();
-        const dados=await r.json();
-        if(!dados.length){msg.textContent='Cidade não encontrada.';return;}
-        const a=Number(dados[0].lat),o=Number(dados[0].lon),m=.05;
-        const bbox=[o-m,a-m,o+m,a+m].join(',');
-        document.getElementById('mapa').src=
-          'https://www.openstreetmap.org/export/embed.html?bbox='+
-          encodeURIComponent(bbox)+'&layer=mapnik&marker='+
-          encodeURIComponent(a+','+o);
-        msg.textContent='📍 '+dados[0].display_name;
-      }catch(err){msg.textContent='Não foi possível pesquisar agora.';}
-    };
-    </script>
+  // MAPA INTERATIVO
+  const mapaInterativo = L.map("mapa", { maxZoom: 19 }).setView(
+    [-16.3, -41.5],
+    9
+  );
+
+  // MAPA NORMAL
+  // Usa Esri para evitar o servidor OSM que apresentou erro 403.
+  const mapaNormal = L.tileLayer(
+    "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
+    {
+      maxZoom: 19,
+      attribution: "Mapa: Esri e colaboradores"
+    }
+  );
+
+  // SATÉLITE
+  const mapaSatelite = L.tileLayer(
+    "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+    {
+      maxNativeZoom: 16,
+      maxZoom: 19,
+      attribution: "Imagens: Esri e colaboradores"
+    }
+  );
+
+  // NOMES SOBRE AS IMAGENS DE SATÉLITE
+  const nomesLugares = L.tileLayer(
+    "https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}",
+    {
+      maxZoom: 19,
+      attribution: "Nomes dos lugares: Esri",
+      opacity: 1
+    }
+  );
+
+  // CAMADA COM ESTRADAS SOBRE O SATÉLITE
+  const estradasSatelite = L.tileLayer(
+    "https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Transportation/MapServer/tile/{z}/{y}/{x}",
+    {
+      maxZoom: 19,
+      attribution: "Estradas: Esri",
+      opacity: 0.85
+    }
+  );
+
+  mapaNormal.addTo(mapaInterativo);
+
+  const btnNormal = document.getElementById("btnNormal");
+  const btnSatelite = document.getElementById("btnSatelite");
+
+  // TROCAR PARA MAPA NORMAL
+  btnNormal.onclick = () => {
+    mapaInterativo.removeLayer(mapaSatelite);
+    mapaInterativo.removeLayer(nomesLugares);
+    mapaInterativo.removeLayer(estradasSatelite);
+
+    mapaNormal.addTo(mapaInterativo);
+
+    btnNormal.classList.add("ativo");
+    btnSatelite.classList.remove("ativo");
+  };
+
+  // TROCAR PARA SATÉLITE COM NOMES E ESTRADAS
+  btnSatelite.onclick = () => {
+    mapaInterativo.removeLayer(mapaNormal);
+
+    mapaSatelite.addTo(mapaInterativo);
+    estradasSatelite.addTo(mapaInterativo);
+    nomesLugares.addTo(mapaInterativo);
+
+    btnSatelite.classList.add("ativo");
+    btnNormal.classList.remove("ativo");
+  };
+
+  // PESQUISAR LOCALIDADES
+  let marcadorPesquisa = null;
+
+  document.getElementById("pesquisa").onsubmit = async (evento) => {
+    evento.preventDefault();
+
+    const mensagem = document.getElementById("mensagem");
+    const cidade = document.getElementById("cidade").value.trim();
+
+    mensagem.textContent = "🔎 Pesquisando...";
+
+    try {
+      const url =
+        "https://nominatim.openstreetmap.org/search?" +
+        new URLSearchParams({
+          q: cidade,
+          format: "json",
+          limit: "1"
+        });
+
+      const resposta = await fetch(url);
+
+      if (!resposta.ok) {
+        throw new Error("Erro na pesquisa");
+      }
+
+      const resultados = await resposta.json();
+
+      if (!resultados.length) {
+        mensagem.textContent = "Localidade não encontrada.";
+        return;
+      }
+
+      const latitude = Number(resultados[0].lat);
+      const longitude = Number(resultados[0].lon);
+
+      mapaInterativo.setView([latitude, longitude], 14);
+
+      if (marcadorPesquisa) {
+        mapaInterativo.removeLayer(marcadorPesquisa);
+      }
+
+      marcadorPesquisa = L.marker([latitude, longitude])
+        .addTo(mapaInterativo)
+        .bindPopup("📍 " + resultados[0].display_name)
+        .openPopup();
+
+      mensagem.textContent =
+        "📍 " + resultados[0].display_name;
+
+    } catch (erro) {
+      mensagem.textContent =
+        "Não foi possível pesquisar agora.";
+    }
+  };
+
+  // CAMADA DOS PROBLEMAS
+  const marcadoresProblemas =
+    L.layerGroup().addTo(mapaInterativo);
+
+  let problemasNoMapa = [];
+
+  function corDoProblema(status) {
+    if (status === "Resolvido") return "#22a447";
+    if (status === "Em andamento") return "#e8ad19";
+    return "#e53935";
+  }
+
+  // CRIAR MARCADOR 📍
+  function adicionarMarcadorProblema(problema, coordenadas) {
+    const marcador = L.marker(coordenadas, {
+      icon: L.divIcon({
+        className: "pin-problema",
+        html: "<span>📍</span>",
+        iconSize: [36, 40],
+        iconAnchor: [18, 38],
+        popupAnchor: [0, -35]
+      })
+    }).addTo(marcadoresProblemas);
+
+    const detalhes = document.createElement("div");
+    detalhes.className = "popup-problema";
+
+    const titulo = document.createElement("strong");
+    titulo.textContent =
+      problema.titulo || "Problema cadastrado";
+
+    const local = document.createElement("p");
+    local.textContent =
+      "📍 Local: " + (problema.local || "Não informado");
+
+    const situacao = document.createElement("p");
+    situacao.textContent =
+      "Situação: " + (problema.status || "Recebido");
+    situacao.style.color = corDoProblema(problema.status);
+    situacao.style.fontWeight = "bold";
+
+    const area = document.createElement("p");
+    area.textContent =
+      "Área: " + (problema.area || "Não informada");
+
+    const descricao = document.createElement("p");
+    descricao.textContent = problema.descricao || "";
+
+    detalhes.append(titulo, local, situacao, area, descricao);
+
+    marcador.bindPopup(detalhes);
+  }
+
+  // FILTRO POR SITUAÇÃO
+  function aplicarFiltro() {
+    const filtro =
+      document.getElementById("filtroStatus").value;
+
+    marcadoresProblemas.clearLayers();
+
+    for (const item of problemasNoMapa) {
+      if (
+        filtro === "Todos" ||
+        item.problema.status === filtro
+      ) {
+        adicionarMarcadorProblema(
+          item.problema,
+          item.coordenadas
+        );
+      }
+    }
+  }
+
+  document.getElementById("filtroStatus")
+    .addEventListener("change", aplicarFiltro);
+
+  // LOCALIZAR ENDEREÇOS CADASTRADOS
+  const enderecosLocalizados = new Map();
+
+  async function localizarProblema(endereco) {
+    if (
+      typeof endereco !== "string" ||
+      !endereco.trim()
+    ) {
+      return null;
+    }
+
+    const chave = endereco.trim();
+
+    if (enderecosLocalizados.has(chave)) {
+      return enderecosLocalizados.get(chave);
+    }
+
+    try {
+      const url =
+        "https://nominatim.openstreetmap.org/search?" +
+        new URLSearchParams({
+          q: chave + ", Brasil",
+          format: "json",
+          limit: "1"
+        });
+
+      const resposta = await fetch(url);
+
+      if (!resposta.ok) return null;
+
+      const resultados = await resposta.json();
+
+      const coordenadas = resultados.length
+        ? [
+            Number(resultados[0].lat),
+            Number(resultados[0].lon)
+          ]
+        : null;
+
+      enderecosLocalizados.set(chave, coordenadas);
+
+      return coordenadas;
+
+    } catch (erro) {
+      console.error("Erro ao localizar endereço:", erro);
+      return null;
+    }
+  }
+
+  // BUSCAR PROBLEMAS NO BANCO DE DADOS
+  const aviso =
+    document.getElementById("avisoProblemas");
+
+  async function carregarProblemas() {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      aviso.textContent =
+        "🔐 Faça login para visualizar os problemas cadastrados.";
+      return;
+    }
+
+    try {
+      aviso.textContent =
+        "📍 Carregando problemas cadastrados...";
+
+      const resposta = await fetch("/api/problemas", {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+
+      if (!resposta.ok) {
+        throw new Error("Erro HTTP " + resposta.status);
+      }
+
+      const dados = await resposta.json();
+
+      const problemas = Array.isArray(dados.problemas)
+        ? dados.problemas.slice(0, 5)
+        : [];
+
+      problemasNoMapa = [];
+      aplicarFiltro();
+
+      let encontrados = 0;
+
+      for (const problema of problemas) {
+        const coordenadas =
+          await localizarProblema(problema.local);
+
+        if (coordenadas) {
+          problemasNoMapa.push({
+            problema,
+            coordenadas
+          });
+
+          encontrados++;
+          aplicarFiltro();
+        }
+
+        // Intervalo entre consultas de localização
+        await new Promise(resolve =>
+          setTimeout(resolve, 1100)
+        );
+      }
+
+      aviso.textContent = encontrados
+        ? `✅ ${encontrados} problema(s) localizado(s) no mapa.`
+        : "Nenhum dos problemas consultados pôde ser localizado.";
+
+    } catch (erro) {
+      console.error(erro);
+
+      aviso.textContent =
+        "⚠️ Não foi possível carregar os problemas. Verifique o login e o servidor.";
+    }
+  }
+
+  carregarProblemas();
+</script>
+
 </body>
 </html>
