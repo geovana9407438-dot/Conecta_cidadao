@@ -1,19 +1,32 @@
 require("dotenv").config();
 
-const http = require("http");
 const express = require("express");
+const path = require("path")
+const db = require("./database");
 
 const app = express();
 const PORTA = process.env.PORT || 3000;
 
 app.use(express.json());
 
+app.use(express.static(path.join(__dirname, "../front-end"))); 
+console.log("Front-end:", path.join(__dirname, "../front-end"));
+
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header(
         "Access-Control-Allow-Headers",
-        "Origin, X-Requested-With, Content-Type, Accept"
+        "Origin, X-Requested-With, Content-Type, Accept, Authorization"
     );
+    res.header(
+        "Access-Control-Allow-Methods",
+        "GET, POST, PATCH, OPTIONS"
+    );
+
+    if (req.method === "OPTIONS") {
+        return res.sendStatus(204);
+    }
+
     next();
 });
 

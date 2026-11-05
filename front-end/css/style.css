@@ -740,3 +740,1806 @@ footer {
         text-align: center;
     }
 }
+
+/* ==========================================
+   CONECTA - NOVA IDENTIDADE VISUAL
+   Diogo + Raony - Front-End
+   ========================================== */
+
+/* Fundo geral */
+body {
+    background:
+        radial-gradient(circle at 10% 10%, rgba(124, 58, 237, 0.12), transparent 30%),
+        radial-gradient(circle at 90% 20%, rgba(37, 99, 235, 0.12), transparent 30%),
+        #f5f7ff;
+}
+
+/* Cabeçalho */
+.topo {
+    background: rgba(11, 16, 38, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 30px rgba(11, 16, 38, 0.15);
+}
+
+.logo {
+    color: white;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+/* Links do menu */
+.topo nav a {
+    color: rgba(255, 255, 255, 0.8);
+    transition: 0.25s ease;
+}
+
+.topo nav a:hover {
+    color: white;
+    transform: translateY(-1px);
+}
+
+/* Hero principal */
+.hero {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 85% 25%, rgba(168, 85, 247, 0.45), transparent 25%),
+        radial-gradient(circle at 20% 90%, rgba(37, 99, 235, 0.35), transparent 30%),
+        linear-gradient(135deg, #0b1026, #172554, #4c1d95);
+    border-radius: 0 0 28px 28px;
+    box-shadow: 0 25px 60px rgba(37, 99, 235, 0.22);
+}
+
+/* brilho decorativo do Hero */
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    right: 8%;
+    top: -100px;
+    border-radius: 50%;
+    background: rgba(168, 85, 247, 0.22);
+    filter: blur(50px);
+    pointer-events: none;
+}
+
+/* Títulos */
+.hero h2 {
+    position: relative;
+    z-index: 1;
+    color: white;
+}
+
+.hero p {
+    position: relative;
+    z-index: 1;
+}
+
+/* Botões */
+button,
+.botao,
+.botao-enviar {
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        opacity 0.2s ease;
+}
+
+button:hover,
+.botao:hover,
+.botao-enviar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(37, 99, 235, 0.25);
+}
+
+/* Cards */
+.cards {
+    gap: 24px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 22px;
+    box-shadow: 0 15px 40px rgba(15, 23, 42, 0.08);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 22px 50px rgba(15, 23, 42, 0.14);
+}
+
+/* Cards de categoria */
+.categoria-grid {
+    gap: 22px;
+}
+
+.categoria-card {
+    background: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 22px;
+    box-shadow: 0 15px 40px rgba(15, 23, 42, 0.08);
+    transition: 0.25s ease;
+}
+
+.categoria-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 45px rgba(76, 29, 149, 0.14);
+}
+
+/* Formulários */
+.formulario-box,
+.login-box {
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-radius: 24px;
+    box-shadow: 0 25px 60px rgba(15, 23, 42, 0.12);
+}
+
+/* Inputs */
+input,
+select,
+textarea {
+    border-radius: 12px;
+    border: 1px solid #dbe2f0;
+    transition: 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #7c3aed;
+    box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.12);
+}
+
+/* Estatísticas do painel */
+.estatisticas {
+    gap: 20px;
+}
+
+.estatistica,
+.resumo-card {
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 15px 40px rgba(15, 23, 42, 0.08);
+}
+
+/* Barras */
+.barra {
+    overflow: hidden;
+    border-radius: 999px;
+}
+
+.barra-preenchida {
+    border-radius: 999px;
+    background: linear-gradient(90deg, #2563eb, #7c3aed);
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+
+    .hero {
+        border-radius: 0 0 22px 22px;
+    }
+
+    .topo {
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+    }
+
+    .card,
+    .categoria-card,
+    .formulario-box,
+    .login-box {
+        border-radius: 18px;
+    }
+}
+
+/* ==========================================
+   CONECTA - MELHORIA DAS CARDS E LOGIN
+   ========================================== */
+
+/* ÁREA DE CATEGORIAS */
+.categoria-grid {
+    margin-top: 28px;
+}
+
+.categoria-card {
+    position: relative;
+    overflow: hidden;
+    padding: 30px 26px;
+    min-height: 215px;
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.95),
+        rgba(245, 247, 255, 0.88)
+    );
+    border: 1px solid rgba(124, 58, 237, 0.08);
+    border-radius: 24px;
+    box-shadow:
+        0 15px 35px rgba(15, 23, 42, 0.08),
+        0 0 0 1px rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+}
+
+/* brilho decorativo */
+.categoria-card::before {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    top: -55px;
+    right: -45px;
+    border-radius: 50%;
+    background: rgba(124, 58, 237, 0.10);
+    filter: blur(5px);
+    transition: 0.3s ease;
+}
+
+.categoria-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(124, 58, 237, 0.18);
+    box-shadow:
+        0 22px 45px rgba(15, 23, 42, 0.12),
+        0 0 30px rgba(124, 58, 237, 0.08);
+}
+
+.categoria-card:hover::before {
+    transform: scale(1.5);
+}
+
+/* Ícones das categorias */
+.categoria-card:first-child,
+.categoria-card:nth-child(2),
+.categoria-card:nth-child(3),
+.categoria-card:nth-child(4) {
+    transition: all 0.3s ease;
+}
+
+/* Títulos */
+.categoria-card h3 {
+    position: relative;
+    z-index: 1;
+    font-size: 20px;
+    margin-top: 18px;
+    margin-bottom: 12px;
+}
+
+/* Descrição */
+.categoria-card p {
+    position: relative;
+    z-index: 1;
+    line-height: 1.6;
+    color: #64748b;
+}
+
+
+/* ==========================================
+   COMO FUNCIONA
+   ========================================== */
+
+.cards .card {
+    position: relative;
+    overflow: hidden;
+    min-height: 210px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(124, 58, 237, 0.08);
+    box-shadow: 0 15px 35px rgba(15, 23, 42, 0.07);
+    transition: all 0.3s ease;
+}
+
+.cards .card:hover {
+    transform: translateY(-8px);
+    box-shadow:
+        0 22px 45px rgba(15, 23, 42, 0.12),
+        0 0 25px rgba(37, 99, 235, 0.08);
+}
+
+/* ==========================================
+   LOGIN
+   ========================================== */
+
+/* Fundo especial somente na página de login */
+body:has(.login-box) {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(124, 58, 237, 0.25),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(37, 99, 235, 0.22),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #080d22,
+            #111a3d,
+            #32146b
+        );
+}
+
+/* Caixa de login */
+.login-box {
+    position: relative;
+    overflow: hidden;
+    border-radius: 28px;
+
+    background: rgba(255, 255, 255, 0.94);
+
+    border: 1px solid rgba(255, 255, 255, 0.5);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.30),
+        0 0 50px rgba(124, 58, 237, 0.15);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+/* brilho no canto da caixa */
+.login-box::before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    top: -90px;
+    right: -70px;
+
+    border-radius: 50%;
+
+    background: rgba(124, 58, 237, 0.15);
+    filter: blur(10px);
+
+    pointer-events: none;
+}
+
+/* Título do login */
+.login-box h1,
+.login-box h2 {
+    position: relative;
+    z-index: 1;
+    color: #111827;
+}
+
+/* Textos */
+.login-box p {
+    position: relative;
+    z-index: 1;
+    color: #64748b;
+}
+
+/* Campos */
+.login-box input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 16px;
+
+    border-radius: 14px;
+    border: 1px solid #dbe2f0;
+
+    background: #f8faff;
+
+    transition: all 0.2s ease;
+}
+
+.login-box input:focus {
+    border-color: #7c3aed;
+
+    background: white;
+
+    box-shadow:
+        0 0 0 4px rgba(124, 58, 237, 0.10),
+        0 8px 20px rgba(124, 58, 237, 0.08);
+}
+
+/* Botão de login */
+.login-box button {
+    width: 100%;
+    border: none;
+    border-radius: 14px;
+
+    padding: 14px 20px;
+
+    color: white;
+    font-weight: 700;
+
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #7c3aed
+    );
+
+    box-shadow:
+        0 10px 25px rgba(37, 99, 235, 0.25);
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+}
+
+.login-box button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 30px rgba(124, 58, 237, 0.30);
+}
+
+
+/* ==========================================
+   CELULAR
+   ========================================== */
+
+@media (max-width: 600px) {
+
+    .categoria-card {
+        min-height: 190px;
+        padding: 24px 20px;
+    }
+
+    .cards .card {
+        min-height: 180px;
+    }
+
+    .login-box {
+        border-radius: 22px;
+        margin: 15px;
+    }
+}
+
+
+/* ===== NOVA IDENTIDADE VISUAL CONECTA ===== */
+
+:root {
+    color-scheme: light;
+    --fundo: #f7f5ff;
+    --superficie: #ffffff;
+    --texto: #25213b;
+    --texto-secundario: #6e6884;
+    --borda: #e8e2f5;
+    --degrade: linear-gradient(110deg, #3478f6, #8451e8, #ed55a7);
+    --sombra: 0 10px 30px rgba(92, 65, 170, 0.12);
+}
+
+body {
+    background: var(--fundo);
+    color: var(--texto);
+    transition: background 0.25s, color 0.25s;
+}
+
+.topo {
+    background: var(--superficie);
+    border-bottom: 1px solid var(--borda);
+    box-shadow: var(--sombra);
+}
+
+.logo {
+    background: var(--degrade);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: 800;
+}
+
+.topo nav a {
+    color: var(--texto);
+    transition: color 0.2s;
+}
+
+.topo nav a:hover {
+    color: #b044d5;
+}
+
+.hero {
+    background: var(--degrade);
+    color: #ffffff;
+    border-radius: 24px;
+    box-shadow: var(--sombra);
+}
+
+.botao-principal,
+button[type="submit"] {
+    background: var(--degrade);
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    transition: transform 0.2s, filter 0.2s;
+}
+
+.botao-principal:hover,
+button[type="submit"]:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.08);
+}
+
+.card {
+    background: var(--superficie);
+    color: var(--texto);
+    border: 1px solid var(--borda);
+    border-radius: 18px;
+    box-shadow: var(--sombra);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 34px rgba(92, 65, 170, 0.18);
+}
+
+.boas-vindas,
+.como-funciona,
+footer {
+    color: var(--texto);
+}
+
+.botao-tema {
+    padding: 10px 14px;
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    background: var(--superficie);
+    color: var(--texto);
+    cursor: pointer;
+    font: inherit;
+}
+
+body.modo-escuro {
+    color-scheme: dark;
+    --fundo: #151321;
+    --superficie: #211d32;
+    --texto: #f5f0ff;
+    --texto-secundario: #c0b6d8;
+    --borda: #39304f;
+    --sombra: 0 10px 30px rgba(0, 0, 0, 0.22);
+}
+
+body.modo-escuro .hero {
+    color: #ffffff;
+}
+
+body.modo-escuro .card,
+body.modo-escuro .topo,
+body.modo-escuro .botao-tema {
+    background-color: var(--superficie);
+    color: var(--texto);
+}
+
+body.modo-escuro .topo nav a,
+body.modo-escuro .boas-vindas,
+body.modo-escuro .como-funciona,
+body.modo-escuro footer {
+    color: var(--texto);
+}
+
+body.modo-escuro input,
+body.modo-escuro textarea,
+body.modo-escuro select {
+    background: var(--superficie);
+    color: var(--texto);
+    border-color: var(--borda);
+}
+
+@media (max-width: 700px) {
+    .topo {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .topo nav {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .botao-tema {
+        max-width: 100%;
+    }
+}
+
+
+/* ===== TELA DE LOGIN CONECTA ===== */
+
+.pagina-login {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(237, 85, 167, 0.16), transparent 35%),
+        radial-gradient(circle at 85% 80%, rgba(52, 120, 246, 0.18), transparent 35%),
+        var(--fundo);
+}
+
+.pagina-login .login-container {
+    min-height: 82vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 20px;
+}
+
+.pagina-login .login-box {
+    width: 100%;
+    max-width: 440px;
+    padding: 38px;
+    background: var(--superficie);
+    color: var(--texto);
+    border: 1px solid var(--borda);
+    border-radius: 26px;
+    box-shadow: var(--sombra);
+}
+
+.login-icone {
+    width: 58px;
+    height: 58px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 18px;
+    border-radius: 18px;
+    background: var(--degrade);
+    color: white;
+    font-size: 30px;
+}
+
+.pagina-login .login-box h1 {
+    margin: 0;
+    text-align: center;
+    font-size: 27px;
+}
+
+.pagina-login .login-box h1 span {
+    background: var(--degrade);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.pagina-login .slogan {
+    margin: 12px 0;
+    text-align: center;
+    color: var(--texto-secundario);
+}
+
+.login-descricao {
+    margin: 20px 0 26px;
+    text-align: center;
+    color: var(--texto-secundario);
+    line-height: 1.6;
+}
+
+.pagina-login .login-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pagina-login .login-box label {
+    margin-top: 8px;
+    font-weight: 600;
+    color: var(--texto);
+}
+
+.pagina-login .login-box input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 15px;
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    background: var(--superficie);
+    color: var(--texto);
+    font: inherit;
+    outline: none;
+}
+
+.pagina-login .login-box input:focus {
+    border-color: #8451e8;
+    box-shadow: 0 0 0 3px rgba(132, 81, 232, 0.14);
+}
+
+.pagina-login .login-box .botao-principal {
+    width: 100%;
+    margin-top: 18px;
+    padding: 15px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.pagina-login .cadastro {
+    margin-top: 24px;
+    text-align: center;
+    color: var(--texto-secundario);
+}
+
+.pagina-login .cadastro a,
+.voltar-inicio {
+    color: #a044d5;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.voltar-inicio {
+    display: block;
+    margin-top: 22px;
+    text-align: center;
+}
+
+.pagina-login .cadastro a:hover,
+.voltar-inicio:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+    .pagina-login .login-box {
+        padding: 28px 22px;
+    }
+
+    .pagina-login .login-box h1 {
+        font-size: 23px;
+    }
+}
+
+
+/* ===== PAINEL MODERNO CONECTA ===== */
+
+.painel-moderno {
+    width: min(1100px, 92%);
+    margin: 40px auto;
+}
+
+.painel-moderno .painel-titulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.painel-moderno .painel-titulo h1 {
+    margin: 12px 0;
+    font-size: clamp(28px, 4vw, 40px);
+    background: var(--degrade);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.painel-moderno .painel-titulo p,
+.painel-moderno .secao-titulo p {
+    color: var(--texto-secundario);
+    line-height: 1.6;
+}
+
+.painel-moderno .tag-pagina {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 20px;
+    background: rgba(132, 81, 232, 0.12);
+    color: #a044d5;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.painel-moderno .estatisticas {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 42px;
+}
+
+.painel-moderno .estatistica,
+.painel-moderno .categoria-card,
+.painel-moderno .resumo-card {
+    background: var(--superficie);
+    color: var(--texto);
+    border: 1px solid var(--borda);
+    border-radius: 20px;
+    box-shadow: var(--sombra);
+}
+
+.painel-moderno .estatistica {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 22px 18px;
+}
+
+.painel-moderno .estatistica-icone {
+    display: grid;
+    place-items: center;
+    min-width: 48px;
+    height: 48px;
+    border-radius: 15px;
+    background: var(--degrade);
+    font-size: 22px;
+}
+
+.painel-moderno .estatistica span {
+    display: block;
+    color: var(--texto-secundario);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.painel-moderno .estatistica strong {
+    display: block;
+    margin-top: 6px;
+    font-size: 28px;
+}
+
+.painel-moderno .secao-titulo {
+    margin-bottom: 22px;
+}
+
+.painel-moderno .secao-titulo h2,
+.painel-moderno .resumo-card h2 {
+    margin-bottom: 8px;
+    color: var(--texto);
+}
+
+.painel-moderno .categoria-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.painel-moderno .categoria-card {
+    padding: 22px;
+}
+
+.painel-moderno .categoria-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 26px;
+}
+
+.painel-moderno .categoria-topo strong {
+    color: #a044d5;
+}
+
+.painel-moderno .categoria-card h3 {
+    margin: 18px 0;
+}
+
+.painel-moderno .barra {
+    height: 9px;
+    overflow: hidden;
+    background: var(--borda);
+    border-radius: 20px;
+}
+
+.painel-moderno .barra-preenchida {
+    height: 100%;
+    background: var(--degrade);
+    border-radius: 20px;
+}
+
+.painel-moderno .barra-preenchida.comunidade {
+    width: 90%;
+}
+
+.painel-moderno .barra-preenchida.educacao {
+    width: 60%;
+}
+
+.painel-moderno .barra-preenchida.empresa {
+    width: 40%;
+}
+
+.painel-moderno .barra-preenchida.prefeitura {
+    width: 50%;
+}
+
+.painel-moderno .resumo {
+    margin-top: 36px;
+}
+
+.painel-moderno .resumo-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 28px;
+}
+
+.painel-moderno .resumo-icone {
+    display: grid;
+    place-items: center;
+    min-width: 58px;
+    height: 58px;
+    border-radius: 18px;
+    background: var(--degrade);
+    font-size: 28px;
+}
+
+.painel-moderno .resumo-card p {
+    color: var(--texto-secundario);
+    line-height: 1.7;
+}
+
+@media (max-width: 850px) {
+    .painel-moderno .estatisticas,
+    .painel-moderno .categoria-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 520px) {
+    .painel-moderno .estatisticas,
+    .painel-moderno .categoria-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .painel-moderno .resumo-card {
+        align-items: flex-start;
+        padding: 20px;
+    }
+}
+
+
+/* ===== ACOMPANHAMENTO MODERNO ===== */
+
+.acompanhamento-moderno {
+    width: min(1050px, 92%);
+    margin: 40px auto;
+    color: var(--texto);
+}
+
+.acompanhamento-moderno .cabecalho-pagina {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-bottom: 30px;
+}
+
+.acompanhamento-moderno .cabecalho-pagina h1 {
+    margin: 12px 0;
+    font-size: clamp(27px, 4vw, 38px);
+    background: var(--degrade);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.acompanhamento-moderno .cabecalho-pagina p {
+    color: var(--texto-secundario);
+    line-height: 1.6;
+}
+
+.acompanhamento-moderno .filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.acompanhamento-moderno .filtro {
+    padding: 11px 16px;
+    border: 1px solid var(--borda);
+    border-radius: 13px;
+    background: var(--superficie);
+    color: var(--texto);
+    cursor: pointer;
+    font: inherit;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.acompanhamento-moderno .filtro:hover {
+    transform: translateY(-2px);
+}
+
+.acompanhamento-moderno .filtro.ativo {
+    color: white;
+    background: var(--degrade);
+    border-color: transparent;
+}
+
+.acompanhamento-moderno .lista-problemas {
+    display: grid;
+    gap: 18px;
+}
+
+.acompanhamento-moderno .problema-card {
+    padding: 25px;
+    border: 1px solid var(--borda);
+    border-radius: 20px;
+    background: var(--superficie);
+    color: var(--texto);
+    box-shadow: var(--sombra);
+}
+
+.acompanhamento-moderno .problema-topo {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.acompanhamento-moderno .categoria {
+    color: #a044d5;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.acompanhamento-moderno .problema-card h2 {
+    margin: 10px 0;
+    overflow-wrap: anywhere;
+}
+
+.acompanhamento-moderno .status {
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.acompanhamento-moderno .status.recebido {
+    background: #fff3ce;
+    color: #795600;
+}
+
+.acompanhamento-moderno .status.andamento {
+    background: #dceaff;
+    color: #174b9b;
+}
+
+.acompanhamento-moderno .status.resolvido {
+    background: #d9f7e5;
+    color: #17683b;
+}
+
+.acompanhamento-moderno .local,
+.acompanhamento-moderno .descricao {
+    color: var(--texto-secundario);
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+.acompanhamento-moderno .problema-info {
+    padding-top: 15px;
+    margin-top: 15px;
+    border-top: 1px solid var(--borda);
+    color: var(--texto-secundario);
+    font-size: 13px;
+}
+
+.acompanhamento-moderno .estado-vazio {
+    padding: 40px 20px;
+    text-align: center;
+    border: 1px dashed var(--borda);
+    border-radius: 20px;
+    color: var(--texto-secundario);
+}
+
+.acompanhamento-moderno .estado-vazio > div {
+    font-size: 40px;
+}
+
+.acompanhamento-moderno .estado-vazio h2 {
+    color: var(--texto);
+}
+
+.mensagem-lista {
+    color: var(--texto-secundario);
+    line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+    .acompanhamento-moderno .problema-card {
+        padding: 19px;
+    }
+
+    .acompanhamento-moderno .cabecalho-pagina .botao-principal {
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+    }
+}
+
+
+/* ===== CADASTRO DE PROBLEMAS ===== */
+
+.formulario-moderno {
+    width: min(760px, 92%);
+    margin: 40px auto;
+}
+
+.formulario-moderno .formulario-box {
+    padding: clamp(22px, 5vw, 42px);
+    background: var(--superficie);
+    color: var(--texto);
+    border: 1px solid var(--borda);
+    border-radius: 26px;
+    box-shadow: var(--sombra);
+}
+
+.formulario-moderno .titulo-formulario {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 28px;
+}
+
+.formulario-moderno .formulario-icone {
+    display: grid;
+    place-items: center;
+    min-width: 62px;
+    height: 62px;
+    border-radius: 19px;
+    background: var(--degrade);
+    font-size: 29px;
+}
+
+.formulario-moderno .tag-pagina {
+    color: #a044d5;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.formulario-moderno .titulo-formulario h1 {
+    margin: 8px 0;
+    font-size: clamp(25px, 4vw, 34px);
+    background: var(--degrade);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.formulario-moderno .titulo-formulario p {
+    margin: 0;
+    color: var(--texto-secundario);
+    line-height: 1.6;
+}
+
+.formulario-moderno .aviso-formulario {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 26px;
+    padding: 15px;
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+    background: var(--fundo);
+}
+
+.formulario-moderno .aviso-formulario span {
+    font-size: 22px;
+}
+
+.formulario-moderno .aviso-formulario p {
+    margin: 0;
+    color: var(--texto-secundario);
+    line-height: 1.6;
+}
+
+.formulario-moderno #problemaForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.formulario-moderno #problemaForm label {
+    margin-top: 12px;
+    color: var(--texto);
+    font-weight: 650;
+}
+
+.formulario-moderno #problemaForm input:not([type="file"]),
+.formulario-moderno #problemaForm select,
+.formulario-moderno #problemaForm textarea,
+.formulario-moderno #problemaForm input[type="file"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px;
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    background: var(--superficie);
+    color: var(--texto);
+    font: inherit;
+}
+
+.formulario-moderno #problemaForm textarea {
+    resize: vertical;
+    line-height: 1.6;
+}
+
+.formulario-moderno #problemaForm input:focus,
+.formulario-moderno #problemaForm select:focus,
+.formulario-moderno #problemaForm textarea:focus {
+    outline: none;
+    border-color: #8451e8;
+    box-shadow: 0 0 0 3px rgba(132, 81, 232, 0.14);
+}
+
+.formulario-moderno .opcional {
+    color: var(--texto-secundario);
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.formulario-moderno .ajuda-foto {
+    margin: 0;
+    color: var(--texto-secundario);
+    font-size: 13px;
+}
+
+.formulario-moderno .botao-enviar {
+    width: 100%;
+    margin-top: 18px;
+    padding: 16px;
+    border: none;
+    border-radius: 13px;
+    background: var(--degrade);
+    color: white;
+    font: inherit;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform 0.2s, filter 0.2s;
+}
+
+.formulario-moderno .botao-enviar:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.08);
+}
+
+.formulario-moderno .voltar {
+    display: block;
+    margin-top: 24px;
+    text-align: center;
+    color: #a044d5;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.formulario-moderno .voltar:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 520px) {
+    .formulario-moderno .titulo-formulario {
+        align-items: flex-start;
+    }
+
+    .formulario-moderno .formulario-icone {
+        min-width: 48px;
+        height: 48px;
+        font-size: 23px;
+    }
+}
+
+/* ===== VISUAL ROXO - CONECTA CIDADÃO ===== */
+
+:root {
+    --roxo: #7546d9;
+    --roxo-escuro: #5025a8;
+    --lilas: #eee6ff;
+}
+
+body {
+    background: linear-gradient(135deg, #f8f5ff, #eee6ff);
+    color: #302448;
+}
+
+.topo {
+    background: linear-gradient(90deg, #5025a8, #8958e8);
+    color: white;
+}
+
+.topo .logo {
+    color: white;
+    font-weight: 800;
+}
+
+.topo nav a {
+    color: white;
+}
+
+.topo nav a:hover {
+    color: #e9d8ff;
+}
+
+.hero {
+    background: linear-gradient(135deg, #7546d9, #a87df4);
+    color: white;
+    border-radius: 24px;
+    padding: 40px;
+}
+
+.hero h2,
+.hero p,
+.hero .tag {
+    color: white;
+}
+
+.botao-principal {
+    display: inline-block;
+    background: white;
+    color: #5025a8;
+    border-radius: 14px;
+    padding: 14px 24px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.botao-principal:hover {
+    background: #eee6ff;
+}
+
+.card {
+    background: white;
+    border: 1px solid #e4d6ff;
+    border-radius: 20px;
+    box-shadow: 0 6px 18px rgba(80, 37, 168, 0.10);
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.como-funciona .passos > div {
+    border-radius: 18px;
+}
+
+@media (max-width: 768px) {
+    .topo {
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 16px;
+    }
+
+    .topo nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .hero {
+        padding: 24px;
+    }
+
+    .cards {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+
+/* ===== VISUAL ROXO - CONECTA CIDADÃO ===== */
+
+:root {
+    --roxo: #7546d9;
+    --roxo-escuro: #5025a8;
+    --lilas: #eee6ff;
+}
+
+body {
+    background: linear-gradient(135deg, #f8f5ff, #eee6ff);
+    color: #302448;
+}
+
+.topo {
+    background: linear-gradient(90deg, #5025a8, #8958e8);
+    color: white;
+}
+
+.topo .logo {
+    color: white;
+    font-weight: 800;
+}
+
+.topo nav a {
+    color: white;
+}
+
+.topo nav a:hover {
+    color: #e9d8ff;
+}
+
+.hero {
+    background: linear-gradient(135deg, #7546d9, #a87df4);
+    color: white;
+    border-radius: 24px;
+    padding: 40px;
+}
+
+.hero h2,
+.hero p,
+.hero .tag {
+    color: white;
+}
+
+.botao-principal {
+    display: inline-block;
+    background: white;
+    color: #5025a8;
+    border-radius: 14px;
+    padding: 14px 24px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.botao-principal:hover {
+    background: #eee6ff;
+}
+
+.card {
+    background: white;
+    border: 1px solid #e4d6ff;
+    border-radius: 20px;
+    box-shadow: 0 6px 18px rgba(80, 37, 168, 0.10);
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.como-funciona .passos > div {
+    border-radius: 18px;
+}
+
+@media (max-width: 768px) {
+    .topo {
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 16px;
+    }
+
+    .topo nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .hero {
+        padding: 24px;
+    }
+
+    .cards {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+
+/* ===== CADASTRO ROXO - CONECTA CIDADÃO ===== */
+
+.pagina-login .login-container {
+    min-height: calc(100vh - 90px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 35px 16px;
+}
+
+.pagina-login .login-box {
+    width: 100%;
+    max-width: 460px;
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 24px;
+    box-shadow: 0 12px 35px rgba(80, 37, 168, 0.15);
+}
+
+.pagina-login .login-box h1 span {
+    color: #7546d9;
+}
+
+.pagina-login .login-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.pagina-login .login-box input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px;
+    border: 1px solid #d8c5ff;
+    border-radius: 12px;
+    font-size: 15px;
+}
+
+.pagina-login .login-box input:focus {
+    outline: 2px solid #8958e8;
+    outline-offset: 1px;
+}
+
+.pagina-login .login-box .botao-principal {
+    background: #7546d9;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.pagina-login .login-box .botao-principal:hover {
+    background: #5025a8;
+}
+
+.pagina-login .login-box a {
+    color: #7546d9;
+}
+
+@media (max-width: 480px) {
+    .pagina-login .login-box {
+        padding: 24px 18px;
+    }
+}
+
+/* ===== PAINEL ROXO - CONECTA CIDADÃO ===== */
+
+.painel-moderno {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 35px 20px;
+}
+
+.painel-titulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.painel-titulo h1 {
+    color: #5025a8;
+    font-size: 32px;
+}
+
+.tag-pagina {
+    color: #7546d9;
+    font-weight: bold;
+}
+
+.painel-titulo .botao-principal {
+    background: #7546d9;
+    color: white;
+}
+
+.estatisticas {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    margin-bottom: 35px;
+}
+
+.estatistica,
+.categoria-card,
+.resumo-card {
+    background: white;
+    border: 1px solid #e7d9ff;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 8px 22px rgba(80, 37, 168, 0.10);
+}
+
+.estatistica {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.estatistica-icone {
+    font-size: 30px;
+}
+
+.estatistica strong {
+    display: block;
+    color: #7546d9;
+    font-size: 30px;
+    margin-top: 8px;
+}
+
+.categorias-painel h2 {
+    color: #5025a8;
+}
+
+.categoria-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.categoria-card h3 {
+    color: #5025a8;
+}
+
+.barra {
+    background: #eee6ff;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 10px;
+    margin-top: 15px;
+}
+
+.barra-preenchida {
+    background: linear-gradient(90deg, #7546d9, #a87df4);
+    height: 100%;
+    border-radius: 20px;
+}
+
+.resumo-card {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+@media (max-width: 900px) {
+    .estatisticas,
+    .categoria-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 550px) {
+    .estatisticas,
+    .categoria-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .painel-titulo h1 {
+        font-size: 26px;
+    }
+}
+
+/* ===== ACOMPANHAR - CONECTA CIDADÃO ===== */
+
+.acompanhamento-moderno {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    min-height: 75vh;
+}
+
+.cabecalho-pagina {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.cabecalho-pagina h1 {
+    color: #5025a8;
+    font-size: 32px;
+    margin: 12px 0;
+}
+
+.cabecalho-pagina p {
+    color: #686080;
+}
+
+.acompanhamento-moderno .botao-principal {
+    background: #7546d9;
+    color: white;
+    border-radius: 12px;
+    padding: 14px 22px;
+}
+
+.acompanhamento-moderno .filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.acompanhamento-moderno .filtro {
+    background: white;
+    color: #5025a8;
+    border: 1px solid #d8c5ff;
+    padding: 12px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.acompanhamento-moderno .filtro:hover,
+.acompanhamento-moderno .filtro.ativo {
+    background: #7546d9;
+    color: white;
+    border-color: #7546d9;
+}
+
+.acompanhamento-moderno .lista-problemas {
+    display: grid;
+    gap: 20px;
+}
+
+.acompanhamento-moderno .problema-card,
+.acompanhamento-moderno .estado-vazio {
+    background: white;
+    border: 1px solid #e7d9ff;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 8px 25px rgba(80, 37, 168, 0.10);
+}
+
+.acompanhamento-moderno .problema-topo {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.acompanhamento-moderno .problema-card h2 {
+    color: #5025a8;
+    margin: 12px 0;
+}
+
+.acompanhamento-moderno .status {
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.acompanhamento-moderno .status.recebido {
+    background: #fff3cd;
+    color: #805900;
+}
+
+.acompanhamento-moderno .status.andamento {
+    background: #dceaff;
+    color: #174c99;
+}
+
+.acompanhamento-moderno .status.resolvido {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.acompanhamento-moderno .estado-vazio {
+    text-align: center;
+    padding: 45px 20px;
+}
+
+.acompanhamento-moderno .mensagem-lista {
+    color: #7546d9;
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    .cabecalho-pagina h1 {
+        font-size: 25px;
+    }
+
+    .acompanhamento-moderno .filtro {
+        padding: 10px 14px;
+    }
+
+    .acompanhamento-moderno .problema-card {
+        padding: 18px;
+    }
+}

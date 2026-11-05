@@ -2,17 +2,26 @@
 // CONECTA - JAVASCRIPT
 // ==========================================
 
+
+const API_URL = "https://ubiquitous-space-tribble-wvg7q9xpxp773g6xw-3000.app.github.dev";
+
+
 // CADASTRO DE USUÁRIO
 const cadastroForm = document.getElementById("cadastroForm");
 
 if (cadastroForm) {
-    cadastroForm.addEventListener("submit", function(event) {
+    cadastroForm.addEventListener("submit", async function(event) {
         event.preventDefault();
 
         const nome = document.getElementById("nome").value.trim();
         const email = document.getElementById("email").value.trim();
         const senha = document.getElementById("senha").value;
         const confirmarSenha = document.getElementById("confirmarSenha").value;
+
+        if (!nome || !email || !senha || !confirmarSenha) {
+            alert("Preencha todos os campos.");
+            return;
+        }
 
         if (senha !== confirmarSenha) {
             alert("As senhas não são iguais.");
@@ -24,17 +33,30 @@ if (cadastroForm) {
             return;
         }
 
-        const usuario = {
-            nome: nome,
-            email: email,
-            senha: senha
-        };
+        try {
+            const resposta = await fetch(`${API_URL}/api/usuarios/cadastro`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ nome, email, senha })
+            });
 
-        // Protótipo temporário. Será substituído pelo Back-End.
-        localStorage.setItem("usuarioConecta", JSON.stringify(usuario));
+            const dados = await resposta.json();
 
-        alert("Conta criada com sucesso!");
-        window.location.href = "login.html";
+            if (!resposta.ok) {
+                alert(dados.erro || dados.mensagem || "Não foi possível realizar o cadastro.");
+                return;
+            }
+
+            alert(dados.mensagem || "Cadastro realizado com sucesso!");
+            cadastroForm.reset();
+            window.location.href = "login.html";
+
+        } catch (erro) {
+            console.error("Erro no cadastro:", erro);
+            alert("Não foi possível conectar ao servidor. Verifique se o Back-End está funcionando.");
+        }
     });
 }
 
@@ -42,26 +64,58 @@ if (cadastroForm) {
 const loginForm = document.getElementById("loginForm");
 
 if (loginForm) {
-    loginForm.addEventListener("submit", function(event) {
+    loginForm.addEventListener("submit", async function(event) {
         event.preventDefault();
 
         const email = document.getElementById("email").value.trim();
         const senha = document.getElementById("senha").value;
 
-        const usuarioSalvo = localStorage.getItem("usuarioConecta");
-
-        if (!usuarioSalvo) {
-            alert("Nenhuma conta cadastrada.");
+        if (!email || !senha) {
+            alert("Preencha o e-mail e a senha.");
             return;
         }
 
-        const usuario = JSON.parse(usuarioSalvo);
+        try {
+            const resposta = await fetch(
+                `${API_URL}/api/usuarios/login`,
+                {
+                    method: "POST",
 
-        if (email === usuario.email && senha === usuario.senha) {
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        email: email,
+                        senha: senha
+                    })
+                }
+            );
+
+            const dados = await resposta.json();
+
+            if (!resposta.ok) {
+                alert(dados.erro || "Erro ao realizar login.");
+                return;
+            }
+
+            // Salva o token JWT recebido do Back-End
+            localStorage.setItem("token", dados.token);
+
+            // Marca que o usuário está logado
             localStorage.setItem("usuarioLogado", "true");
+
+            alert("Login realizado com sucesso!");
+
             window.location.href = "index.html";
-        } else {
-            alert("E-mail ou senha incorretos.");
+
+        } catch (erro) {
+
+            console.error(erro);
+
+            alert(
+                "Não foi possível conectar ao servidor."
+            );
         }
     });
 }
@@ -70,7 +124,7 @@ if (loginForm) {
 const problemaForm = document.getElementById("problemaForm");
 
 if (problemaForm) {
-    problemaForm.addEventListener("submit", function(event) {
+    problemaForm.addEventListener("submit", async function(event) {
         event.preventDefault();
 
         const area = document.getElementById("area").value;
@@ -78,12 +132,90 @@ if (problemaForm) {
         const local = document.getElementById("local").value.trim();
         const descricao = document.getElementById("descricao").value.trim();
 
+        // Verifica se os campos obrigatórios foram preenchidos
         if (!area || !tipo || !local || !descricao) {
             alert("Preencha todos os campos obrigatórios.");
             return;
         }
 
-        alert("Problema enviado com sucesso!");
-        problemaForm.reset();
+        // Pega o token salvo durante o login
+        const token = localStorage.getItem("token");
+
+        if (!token) {
+            alert("Você precisa fazer login para cadastrar um problema.");
+            window.location.href = "login.html";
+            return;
+        }
+
+        // Monta os dados que o Back-End espera
+        const dadosProblema = {
+            titulo: tipo,
+            descricao: descricao,
+            area: area,
+            local: local
+};
+
+try {
+    const resposta = await fetch(
+        "/api/problemas",
+        {
+            method: "POST",
+
+            headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+            },
+
+            body: JSON.stringify(dadosProblema)
+        }
+    );
+
+            const dados = await resposta.json();
+
+            if (!resposta.ok) {
+                alert(dados.erro || "Erro ao cadastrar problema.");
+                return;
+            }
+
+            alert("Problema enviado com sucesso!");
+
+            problemaForm.reset();
+
+        } catch (erro) {
+
+            console.error(erro);
+
+            alert(
+                "Não foi possível conectar ao servidor."
+            );
+        }
+    });
+}
+
+
+/* ===== MODO CLARO E ESCURO ===== */
+
+const botaoTema = document.getElementById("alternarTema");
+
+function aplicarTema(tema) {
+    document.body.classList.toggle("modo-escuro", tema === "escuro");
+
+    if (botaoTema) {
+        botaoTema.textContent =
+            tema === "escuro" ? "☀️ Modo claro" : "🌙 Modo escuro";
+    }
+}
+
+const temaSalvo = localStorage.getItem("temaConecta") || "claro";
+aplicarTema(temaSalvo);
+
+if (botaoTema) {
+    botaoTema.addEventListener("click", function () {
+        const novoTema = document.body.classList.contains("modo-escuro")
+            ? "claro"
+            : "escuro";
+
+        localStorage.setItem("temaConecta", novoTema);
+        aplicarTema(novoTema);
     });
 }
